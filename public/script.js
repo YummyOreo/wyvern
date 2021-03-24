@@ -52,11 +52,16 @@ socket.on('chat-message', data => {
 });
 
 socket.on('user-joined', UserName => {
-	socket.emit('update-list', roomName)
+	if (UserName == name) return;
+	userContaner.innerText = ''
+	const headerList = document.createElement('p');
+	headerList.innerHTML = 'Members In ' + roomName;
+	messageContaner.append(headerList)
 	appendMessage(`${UserName} joined!`);
 });
 
 socket.on('user-leave', UserName => {
+	if (UserName == name) return;
 	const deleteElement = document.getElementById(UserName);
 	deleteElement.remove();
 	messageContaner.append(deleteElement)

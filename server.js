@@ -39,6 +39,9 @@ io.on('connection', socket => {
 		rooms[room].users[socket.id] = name;
 		console.log(rooms[room].users)
 		socket.to(room).broadcast.emit('user-joined', name)
+		for (user in rooms[room].users){
+			socket.to(room).emit("user-list", rooms[room].users[user])
+		}
 	})
 	socket.on('send-chat-message', (room, message) => {
 		name = rooms[room].users[socket.id]
@@ -62,11 +65,6 @@ io.on('connection', socket => {
 			socket.emit('redirect', '/');
 
 		})
-	})
-	socket.on('update-list', room => {
-		for (user in rooms[room].users){
-			socket.to(room).emit("user-list", rooms[room].users[user])
-		}
 	})
 })
 
