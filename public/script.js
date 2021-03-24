@@ -1,7 +1,8 @@
-const socket = io('https://polar-scrubland-13964.herokuapp.com:5500')
+const socket = io('http://localhost:3000')
 const messageContaner = document.getElementById('message-contaner');
 const back = document.getElementById('back');
 const roomContaner = document.getElementById('room-contaner');
+const userContaner = document.getElementById('user-contaner');
 const messageForm = document.getElementById('send-message-form')
 const messageInput = document.getElementById('message-input')
 
@@ -19,6 +20,7 @@ if (messageForm != null) {
 	});
 
 	back.addEventListener('click', e => {
+		console.log('clicked')
 		socket.emit('leave')
 	});
 
@@ -39,22 +41,38 @@ socket.on('room-created', room => {
 	roomContaner.append(roomLink)
 })
 
+socket.on('userList', data => {
+	for(id in data) {
+		console.log(id)
+	}
+});
+
 socket.on('chat-message', data => {
 	appendMessage(`${data.name}: ${data.message}`);
 });
 
-socket.on('user-joined', name => {
-	appendMessage(`${name} joined!`);
+socket.on('user-joined', UserName => {
+	socket.emit('update-list', roomName)
+	appendMessage(`${UserName} joined!`);
 });
 
-socket.on('user-leave', name => {
-	appendMessage(`${name} left.`);
+socket.on('user-leave', UserName => {
+	const deleteElement = document.getElementById(UserName);
+	deleteElement.remove();
+	messageContaner.append(deleteElement)
+	appendMessage(`${UserName} left.`);
+});
+
+socket.on('user-list', UserName => {
+	const listElement = document.createElement('p');
+	listElement.innerText = UserName;
+	listElement.id = UserName
+	userContaner.append(listElement)
 });
 
 
 function appendMessage(message) {
-	const messageElement = document.createElement('div');
+	const messageElement = document.createElement('p');
 	messageElement.innerText = message;
 	messageContaner.append(messageElement)
-
 }

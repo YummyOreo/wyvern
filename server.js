@@ -30,13 +30,14 @@ app.get('/:room', (req, res) => {
 	res.render('room', { roomName: req.params.room })
 })
 
-server.listen(5500)
+server.listen(3000)
 
 io.on('connection', socket => {
 	socket.on('new-user', (room, name) => {
 		if (name == null) name = 'Guest'
 		socket.join(room)
 		rooms[room].users[socket.id] = name;
+		console.log(rooms[room].users)
 		socket.to(room).broadcast.emit('user-joined', name)
 	})
 	socket.on('send-chat-message', (room, message) => {
@@ -61,6 +62,11 @@ io.on('connection', socket => {
 			socket.emit('redirect', '/');
 
 		})
+	})
+	socket.on('update-list', room => {
+		for (user in rooms[room].users){
+			socket.to(room).emit("user-list", rooms[room].users[user])
+		}
 	})
 })
 
