@@ -1,4 +1,4 @@
-const socket = io('http://localhost:3000')
+const socket = io('https://polar-scrubland-13964.herokuapp.com:5500')
 const messageContaner = document.getElementById('message-contaner');
 const back = document.getElementById('back');
 const roomContaner = document.getElementById('room-contaner');
