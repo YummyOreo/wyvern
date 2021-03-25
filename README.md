@@ -28,6 +28,8 @@ This Chat App is ment to not have you sign in, so that means it does not collect
 	* Kick a user from the room
 * Owner Crown
 	* Adds a crown to the owner in chat, and in the member list
+* API for the chat
+	* A api for devs that want to make bots
 
 ## How To Help
 You can help by:
