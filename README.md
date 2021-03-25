@@ -8,4 +8,7 @@ Then, to run the server, type `npm run devStart`. This starts the `server.js` fi
 ## Local Host Website
 The local Host website that this runs on is [http://localhost:3000](http://localhost:3000)
 
-# How it works:
+# How it works (Does not explain everything):
+
+## What modules it uses
+This uses `soket.io`, `ejs`, and `express`. (excluding `HTTPS`)
