@@ -21,10 +21,10 @@ This Chat App is ment to not have you sign in, so that means it does not collect
 You can help by:
 * Forking the repo
 	* If you fork the repo and add/fix code, feel free to DM me on Discord, my tag is OreoDivision#0001.
-	* You will also be added to (Foreked Devs)[https://github.com/OreoDivision/chat-app-oreo#foreked-devs] list if it is accepted! 
+	* You will also be added to [Foreked Devs](https://github.com/OreoDivision/chat-app-oreo#foreked-devs) list if it is accepted! 
 * Make Changes to the UI/Graphic Designe Changes
 	* If you do want to make UI/Graphic Designe Changes DM me on Discord. My tag is OreoDivision#0001. And we can talk about what you think should change about the UI/Graphic Designe Changes
-	* You will also be added to (Foreked Devs)[https://github.com/OreoDivision/chat-app-oreo#foreked-devs] list if it is accepted! 
+	* You will also be added to [Foreked Devs](https://github.com/OreoDivision/chat-app-oreo#foreked-devs) list if it is accepted! 
 
 ## How to run the chat app:
 **Disclaimer:** Not everything works, __feel free__ **to fork** this and work on it, *tell me if you do, and I might add your fixes/additions to the game!* **To do so Dm me on Discord @ OreoDivision#0001.**
