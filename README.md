@@ -1,5 +1,6 @@
 # About this Chat App
-   [How to run the app](https://github.com/OreoDivision/chat-app-oreo#installation) ⦿ [How it works](https://github.com/OreoDivision/chat-app-oreo#how-it-works-does-not-explain-everything)
+<div style="text-align:center">[How to run the app](https://github.com/OreoDivision/chat-app-oreo#installation) ⦿ [How it works](https://github.com/OreoDivision/chat-app-oreo#how-it-works-does-not-explain-everything)</div>
+
 ## How to run the chat app:
 
 ### Installation
