@@ -1,5 +1,5 @@
-# About this Chat App
-<div style="text-align:center"><a href="https://github.com/OreoDivision/chat-app-oreo#installation">How to run the app</a> ⦿ <a href="https://github.com/OreoDivision/chat-app-oreo#how-it-works-does-not-explain-everything">How it works</a></div>
+<h1 align="center">About this Chat App</h1>
+<p align="center"><a href="https://github.com/OreoDivision/chat-app-oreo#installation">How to run the app</a> ⦿ <a href="https://github.com/OreoDivision/chat-app-oreo#how-it-works-does-not-explain-everything">How it works</a></p>
 
 ## How to run the chat app:
 
