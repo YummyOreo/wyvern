@@ -7,7 +7,7 @@ This Chat App is ment to not have you sign in, so that means it does not collect
 #### Discord Coming Soon (Yes ik this is counter-intuitive)
 
 ### List of features:
-**Disclaimer:** Not all of these are in the repo or in the app right now, but we do plan to add all of them.
+> **Disclaimer:** Not all of these are in the repo or in the app right now, but we do plan to add all of them.
 - [x] No Login
 	* this means we will never ask you to login to use our chat app!
 - [x] No chat messages/names loging
@@ -42,7 +42,7 @@ This Chat App is ment to not have you sign in, so that means it does not collect
 	* You will also be added to [Foreked Devs](https://github.com/OreoDivision/chat-app-oreo#foreked-devs) list if it is accepted! 
 
 ## How to run the chat app:
-**Disclaimer:** Not everything works, __feel free__ **to fork** this and work on it, *tell me if you do, and I might add your fixes/additions to the game!* **To do so Dm me on Discord @ OreoDivision#0001.**
+> **Disclaimer:** Not everything works, __feel free__ **to fork** this and work on it, *tell me if you do, and I might add your fixes/additions to the game!* **To do so Dm me on Discord @ OreoDivision#0001.**
 ### Installation
 To install Node.js go to there [website](https://nodejs.org/en/).
 Next, in the command line, type `npm i`. This should install every node modual needed.
@@ -52,7 +52,7 @@ Then, to run the server, type `npm run devStart`. This starts the `server.js` fi
 The local Host website that this runs on is [http://localhost:3000](http://localhost:3000)
 
 ## How it works:
-**Disclaimer:** Does *not* explain __everything!__ Look in the code to **get exactly how it works.**
+> **Disclaimer:** Does *not* explain __everything!__ Look in the code to **get exactly how it works.**
 ### What modules does it uses
 This uses `soket.io`, `ejs`, and `express`. (excluding `HTTPS` and `time`)
 ### How does it send messages?
@@ -70,14 +70,14 @@ Seen in `./views/index.ejs`!
 ## Developers
 All developers that have worked on the app will be listed here.
 
-**Disclaimer:** This does not list ALL, this lists most, and it will not update automatically. If you did fork and got your fork implemented into the main repo and you dont see your name [here](https://github.com/OreoDivision/chat-app-oreo#foreked-devs) Dm me on Discord @ OreoDivision#0001.
+> **Disclaimer:** This does not list ALL, this lists most, and it will not update automatically. If you did fork and got your fork implemented into the main repo and you dont see your name [here](https://github.com/OreoDivision/chat-app-oreo#foreked-devs) Dm me on Discord @ OreoDivision#0001.
 
 ### Direct Devs:
-> This lists everyone that worked on the main repo.
+This lists everyone that worked on the main repo.
 * OreoDivision
 	* Head Dev
 * Polar Ice
 	* Graphic Designer
 
 ### Foreked Devs
-> This lists everyone that has had there fork implemented into the main repo.
+This lists everyone that has had there fork implemented into the main repo.
