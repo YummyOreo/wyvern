@@ -59,7 +59,7 @@ This uses `soket.io`, `ejs`, and `express`. (excluding `HTTPS` and `time`)
 This uses `soket.io`, so we will use the methoid `soket.to(room).brodcast.emit()`. This sends a "emit" or Reqest to everyone in the room, other than the user sending the message 
 ### Whats EJS files?
 `.ejs` files are the same as `.html` files, but they are a little different, you can use JS by using `<% [js] %>` and it will act like a JS file! Example: 
-```
+```js
 <% Object.keys(rooms).forEach(room => { console.log(rooms); if (rooms[room].public == "on") {return;}%>
 		<div><%= room; %></div>
 		<a href="/<%= room %>" class="waves-effect waves-light btn">Join</a>
