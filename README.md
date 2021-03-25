@@ -15,13 +15,26 @@ This Chat App is ment to not have you sign in, so that means it does not collect
 	* This will show you a list of open rooms to go and chat!
 * Private rooms
 	* This will have your room not be on a public list, to join a private room, you need a direct link to the room
+* Room Deletion
+	* This will add a delete button for owners
 * And MORE!
+
+## List of features that ***might*** be implemented:
+* Room Perms
+	* Levels of perms
+* Room Bans
+	* Ban a user from a room
+* Room Kicks
+	* Kick a user from the room
+* Owner Crown
+	* Adds a crown to the owner in chat, and in the member list
 
 ## How To Help
 You can help by:
 * Forking the repo
 	* If you fork the repo and add/fix code, feel free to DM me on Discord, my tag is OreoDivision#0001.
 	* You will also be added to [Foreked Devs](https://github.com/OreoDivision/chat-app-oreo#foreked-devs) list if it is accepted! 
+
 * Make Changes to the UI/Graphic Designe Changes
 	* If you do want to make UI/Graphic Designe Changes DM me on Discord. My tag is OreoDivision#0001. And we can talk about what you think should change about the UI/Graphic Designe Changes
 	* You will also be added to [Foreked Devs](https://github.com/OreoDivision/chat-app-oreo#foreked-devs) list if it is accepted! 
