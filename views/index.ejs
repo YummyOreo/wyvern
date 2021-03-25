@@ -11,14 +11,23 @@
 </head>
 <body>
 	<div id="room-contaner">
-		<% Object.keys(rooms).forEach(room => { %>
-		<div><%= room %></div>
+		<% Object.keys(rooms).forEach(room => { console.log(rooms); if (rooms[room].public == "on") {return;}%>
+		<div><%= room; %></div>
 		<a href="/<%= room %>" class="waves-effect waves-light btn">Join</a>
 		<% }) %>
 
 	</div>
 	<form action='/room' method="POST">
 			<input name="room" type='text' required>
+			  <div class="switch">
+				<label>
+				  Public
+				  <input type="checkbox" name='private'>
+				  <span class="lever"></span>
+				  Private
+				</label>
+			  </div>
+			  <br>
 			<button type="submit" class="waves-effect waves-light btn">New Room</button>
 	</form>
 </body>

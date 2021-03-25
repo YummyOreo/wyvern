@@ -37,7 +37,10 @@ socket.on('redirect', function(destination) {
     window.location.href = destination;
 });
 
-socket.on('room-created', room => {
+socket.on('room-created', (room, private) => {
+	if (private == true){
+		return
+	}
 	const roomElemet = document.createElement('div')
 	roomElemet.innerText = room
 	const roomLink = document.createElement('a')

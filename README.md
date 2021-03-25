@@ -4,33 +4,33 @@
 ## About
 This Chat App is ment to not have you sign in, so that means it does not collect your data, or any data about anything! There will be private rooms, and public rooms. Public rooms are shown on the main page. Private rooms need a link.
 
-#### Discord Coming Soon
+#### Discord Coming Soon (Yes ik this is counter-intuitive)
 
 ### List of features:
 **Disclaimer:** Not all of these are in the repo or in the app right now, but we do plan to add all of them.
-* No Login
+- [x] No Login
 	* this means we will never ask you to login to use our chat app!
-* No chat messages/names loging
+- [x] No chat messages/names loging
 	* We will never log anything
 	* **Disclaimer:** In the repo there may be loging to console, this will be removed once it goes public. This is only for testing!
-* Public rooms
+- [x] Public rooms
 	* This will show you a list of open rooms to go and chat!
-* Private rooms
+- [x] Private rooms
 	* This will have your room not be on a public list, to join a private room, you need a direct link to the room
-* Room Deletion
+- [] Room Deletion
 	* This will add a delete button for owners
-* And MORE!
+- [] And MORE!
 
 ### List of features that ***might*** be implemented:
-* Room Perms
+- [] Room Perms
 	* Levels of perms
-* Room Bans
+- [] Room Bans
 	* Ban a user from a room
-* Room Kicks
+- [] Room Kicks
 	* Kick a user from the room
-* Owner Crown
+- [] Owner Crown
 	* Adds a crown to the owner in chat, and in the member list
-* API for the chat
+- [] API for the chat
 	* A api for devs that want to make bots
 
 ## How To Help
@@ -56,7 +56,7 @@ The local Host website that this runs on is [http://localhost:3000](http://local
 ## How it works:
 **Disclaimer:** Does *not* explain __everything!__ Look in the code to **get exactly how it works.**
 ### What modules does it uses
-This uses `soket.io`, `ejs`, and `express`. (excluding `HTTPS`)
+This uses `soket.io`, `ejs`, and `express`. (excluding `HTTPS` and `time`)
 ### How does it send messages?
 This uses `soket.io`, so we will use the methoid `soket.to(room).brodcast.emit()`. This sends a "emit" or Reqest to everyone in the room, other than the user sending the message 
 
