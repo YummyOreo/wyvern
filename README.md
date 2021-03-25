@@ -31,7 +31,7 @@ The local Host website that this runs on is [http://localhost:3000](http://local
 **Disclaimer:** Does *not* explain __everything!__ Look in the code to **get exactly how it works.**
 ### What modules does it uses
 This uses `soket.io`, `ejs`, and `express`. (excluding `HTTPS`)
-## How does it send messages?
+### How does it send messages?
 This uses `soket.io`, so we will use the methoid `soket.to(room).brodcast.emit()`. This sends a "emit" or Reqest to everyone in the room, other than the user sending the message 
 
 ## Developers
