@@ -60,7 +60,7 @@ This uses `soket.io`, so we will use the methoid `soket.to(room).brodcast.emit()
 ### What is a .ejs files?
 `.ejs` files are the same as `.html` files, but they are a little different, you can use JS by using `<% [js] %>` and it will act like a JS file! Example: 
 ```js
-<% Object.keys(rooms).forEach(room => { console.log(rooms); if (rooms[room].public == "on") {return;}%>
+<% Object.keys(rooms).forEach(room => { console.log(rooms); if (rooms[room].public == 'on') {return;}%>
 		<div><%= room; %></div>
 		<a href="/<%= room %>" class="waves-effect waves-light btn">Join</a>
 		<% }) %>
@@ -73,11 +73,11 @@ All developers that have worked on the app will be listed here.
 **Disclaimer:** This does not list ALL, this lists most, and it will not update automatically. If you did fork and got your fork implemented into the main repo and you dont see your name [here](https://github.com/OreoDivision/chat-app-oreo#foreked-devs) Dm me on Discord @ OreoDivision#0001.
 
 ### Direct Devs:
-This lists everyone that worked on the main repo.
+> This lists everyone that worked on the main repo.
 * OreoDivision
 	* Head Dev
 * Polar Ice
 	* Graphic Designer
 
 ### Foreked Devs
-This lists everyone that has had there fork implemented into the main repo.
+> This lists everyone that has had there fork implemented into the main repo.
