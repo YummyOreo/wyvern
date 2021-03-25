@@ -4,7 +4,7 @@
 ## About
 This Chat App is ment to not have you sign in, so that means it does not collect your data, or any data about anything! There will be private rooms, and public rooms. Public rooms are shown on the main page. Private rooms need a link.
 
-## Here is a list of features:
+### List of features:
 **Disclaimer:** Not all of these are in the repo or in the app right now, but we do plan to add all of them.
 * No Login
 	* this means we will never ask you to login to use our chat app!
