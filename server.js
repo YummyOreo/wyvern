@@ -23,10 +23,6 @@ app.post('/room', (req, res) => {
 	io.emit('room-created', req.body.room)
 })
 
-app.post('/error', (req, res) => {
-	res.render('wrong')
-})
-
 app.get('/:room', (req, res) => {
 	if (rooms[req.params.room] == null) {
 		return res.redirect('/')
@@ -71,7 +67,7 @@ io.on('connection', socket => {
 
 		})
 	})
-	socket.on('name-chage', name => {
+	socket.on('name-chage', (room, name) => {
 		rooms[room].users[socket.id] = name;
 	})
 })

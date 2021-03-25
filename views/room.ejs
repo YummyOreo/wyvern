@@ -11,30 +11,30 @@
 	</script>
 	<script defer src="http://localhost:3000/socket.io/socket.io.js"></script>
 	<script defer src="script.js"></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 </head>
 
 <body>
 	<nav>
 		<div class='nav-wrapper'>
 			<a class="waves-effect waves-light btn" id='back'>Back</a>
+			<a class="waves-effect waves-light btn" id='name'>Change Your Name</a>
 	  		<a class="brand-logo center" id="title"><%= roomName %></a>
+	  		
 		</div>
 	</nav>
 	<br>
 	<div id='user-contaner'>
 		<p>Members In <%= roomName %></p>
 	</div>
-
+	<br>
 	<div id='message-contaner'>
+		<p>Start Of Chat</p>
+	</div>
 		<form id='send-message-form'>
 			<input type="text" id="message-input" required>
-			<br>
-			<label>Name</label>
-			<input type="text" id="name-input">
 			<button type='submit' id='send-message' class="waves-effect waves-light btn">Send</button>
 		</form>
-	</div>
-
 </body>
 
 </html>
