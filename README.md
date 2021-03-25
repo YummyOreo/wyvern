@@ -1,4 +1,4 @@
-# This is how to run the chat app
+# How to run the chat app:
 
 ## Installation
 To install Node.js go to there [website](https://nodejs.org/en/)
@@ -8,4 +8,4 @@ Then, to run the server, type `npm run devStart`. This starts the `server.js` fi
 ## Local Host Website
 The local Host website that this runs on is [http://localhost:3000](http://localhost:3000)
 
-### How it works
+# How it works:
