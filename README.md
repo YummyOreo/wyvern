@@ -17,20 +17,20 @@ This Chat App is ment to not have you sign in, so that means it does not collect
 	* This will show you a list of open rooms to go and chat!
 - [x] Private rooms
 	* This will have your room not be on a public list, to join a private room, you need a direct link to the room
-- [] Room Deletion
+- [ ] Room Deletion
 	* This will add a delete button for owners
-- [] And MORE!
+- [ ] And MORE!
 
 ### List of features that ***might*** be implemented:
-- [] Room Perms
+- [ ] Room Perms
 	* Levels of perms
-- [] Room Bans
+- [ ] Room Bans
 	* Ban a user from a room
-- [] Room Kicks
+- [ ] Room Kicks
 	* Kick a user from the room
-- [] Owner Crown
+- [ ] Owner Crown
 	* Adds a crown to the owner in chat, and in the member list
-- [] API for the chat
+- [ ] API for the chat
 	* A api for devs that want to make bots
 
 ## How To Help
