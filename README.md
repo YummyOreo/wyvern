@@ -24,8 +24,6 @@ This Chat App is ment to not have you sign in, so that means it does not collect
 ### List of features that ***might*** be implemented:
 - [ ] Room Perms
 	* Levels of perms
-- [ ] Room Bans
-	* Ban a user from a room
 - [ ] Room Kicks
 	* Kick a user from the room
 - [ ] Owner Crown
@@ -34,7 +32,7 @@ This Chat App is ment to not have you sign in, so that means it does not collect
 	* A api for devs that want to make bots
 
 ## How To Help
-You can help by:
+### You can help by:
 * Forking the repo
 	* If you fork the repo and add/fix code, feel free to DM me on Discord, my tag is OreoDivision#0001.
 	* You will also be added to [Foreked Devs](https://github.com/OreoDivision/chat-app-oreo#foreked-devs) list if it is accepted! 
@@ -59,6 +57,15 @@ The local Host website that this runs on is [http://localhost:3000](http://local
 This uses `soket.io`, `ejs`, and `express`. (excluding `HTTPS` and `time`)
 ### How does it send messages?
 This uses `soket.io`, so we will use the methoid `soket.to(room).brodcast.emit()`. This sends a "emit" or Reqest to everyone in the room, other than the user sending the message 
+### Whats EJS files?
+`.ejs` files are the same as `.html` files, but they are a little different, you can use JS by using `<% [js] %>` and it will act like a JS file! Example: 
+```
+<% Object.keys(rooms).forEach(room => { console.log(rooms); if (rooms[room].public == "on") {return;}%>
+		<div><%= room; %></div>
+		<a href="/<%= room %>" class="waves-effect waves-light btn">Join</a>
+		<% }) %>
+```
+Seen in `./views/index.ejs`!
 
 ## Developers
 All developers that have worked on the app will be listed here.
