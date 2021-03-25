@@ -1,5 +1,5 @@
 <h1 align="center">About this Chat App</h1>
-<p align="center"><a href="https://github.com/OreoDivision/chat-app-oreo#installation">How to run the app</a> ⦿ <a href="https://github.com/OreoDivision/chat-app-oreo#how-it-works">How it works</a> ⦿ <a href="https://www.taskade.com/d/AjDQGcMqEVdw6EgX?share=view&view=YoqcbUwQAhDyyZ7d">"Trello" List</a></p>
+<p align="center"><a href="https://github.com/OreoDivision/chat-app-oreo#installation">How to run the app</a> ⦿ <a href="https://github.com/OreoDivision/chat-app-oreo#how-it-works">How it works</a> ⦿ <a href="https://www.taskade.com/d/AjDQGcMqEVdw6EgX?share=view&view=YoqcbUwQAhDyyZ7d" target="_blank">"Trello" List</a></p>
 
 ## How to run the chat app:
 **Disclaimer:** Not everything works, __feel free__ **to fork** this and work on it, *tell me if you do, and I might add your fixes/additions to the game!*
