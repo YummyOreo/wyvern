@@ -20,8 +20,10 @@ The local Host website that this runs on is [http://localhost:3000](http://local
 This uses `soket.io`, `ejs`, and `express`. (excluding `HTTPS`)
 
 ## Developers
+All developers that have worked on the app will be listed here.
+
 **Disclaimer:** This does not list ALL, this lists most, and it will not update automatically. If you did fork and got your fork implemented into the main repo and you dont see your name [here](https://github.com/OreoDivision/chat-app-oreo#foreked-devs) Dm me on Discord @ OreoDivision#0001.
-The developers that have worked on the app will be listed here.
+
 ### Direct Devs:
 This lists everyone that worked on the main repo.
 * OreoDivision (Dev)
