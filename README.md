@@ -5,7 +5,7 @@
 This Chat App is ment to not have you sign in, so that means it does not collect your data, or any data about anything! There will be private rooms, and public rooms. Public rooms are shown on the main page. Private rooms need a link.
 
 ## How to run the chat app:
-**Disclaimer:** Not everything works, __feel free__ **to fork** this and work on it, *tell me if you do, and I might add your fixes/additions to the game!*
+**Disclaimer:** Not everything works, __feel free__ **to fork** this and work on it, *tell me if you do, and I might add your fixes/additions to the game!* **To do so Dm me on Discord @ OreoDivision#0001.**
 ### Installation
 To install Node.js go to there [website](https://nodejs.org/en/).
 Next, in the command line, type `npm i`. This should install every node modual needed.
@@ -20,11 +20,12 @@ The local Host website that this runs on is [http://localhost:3000](http://local
 This uses `soket.io`, `ejs`, and `express`. (excluding `HTTPS`)
 
 ## Developers
-The developers that have worked on it will be listed here.
+**Disclaimer:** This does not list ALL, this lists most, and it will not update automatically. If you did fork and got your fork implemented into the main repo and you dont see your name [here](https://github.com/OreoDivision/chat-app-oreo#foreked-devs) Dm me on Discord @ OreoDivision#0001.
+The developers that have worked on the app will be listed here.
 ### Direct Devs:
 This lists everyone that worked on the main repo.
 * OreoDivision (Dev)
 * Polar Ice (Graphic Designer)
 
-### Foreked Devs
+### 
 This lists everyone that has had there fork implemented into the main repo.
