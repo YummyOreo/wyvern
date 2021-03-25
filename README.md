@@ -19,7 +19,7 @@ This Chat App is ment to not have you sign in, so that means it does not collect
 	* This will add a delete button for owners
 * And MORE!
 
-## List of features that ***might*** be implemented:
+### List of features that ***might*** be implemented:
 * Room Perms
 	* Levels of perms
 * Room Bans
