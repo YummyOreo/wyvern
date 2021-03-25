@@ -22,11 +22,15 @@
 	</nav>
 	<br>
 	<div id='user-contaner'>
+		<p>Members In <%= roomName %></p>
 	</div>
 
 	<div id='message-contaner'>
 		<form id='send-message-form'>
-			<input type="text" id="message-input">
+			<input type="text" id="message-input" required>
+			<br>
+			<label>Name</label>
+			<input type="text" id="name-input">
 			<button type='submit' id='send-message' class="waves-effect waves-light btn">Send</button>
 		</form>
 	</div>

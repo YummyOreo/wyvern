@@ -23,6 +23,10 @@ app.post('/room', (req, res) => {
 	io.emit('room-created', req.body.room)
 })
 
+app.post('/error', (req, res) => {
+	res.render('wrong')
+})
+
 app.get('/:room', (req, res) => {
 	if (rooms[req.params.room] == null) {
 		return res.redirect('/')
@@ -41,6 +45,7 @@ io.on('connection', socket => {
 		socket.to(room).broadcast.emit('user-joined', name)
 		for (user in rooms[room].users){
 			socket.to(room).emit("user-list", rooms[room].users[user])
+			socket.emit("user-list", rooms[room].users[user])
 		}
 	})
 	socket.on('send-chat-message', (room, message) => {
@@ -65,6 +70,9 @@ io.on('connection', socket => {
 			socket.emit('redirect', '/');
 
 		})
+	})
+	socket.on('name-chage', name => {
+		rooms[room].users[socket.id] = name;
 	})
 })
 

@@ -5,6 +5,7 @@ const roomContaner = document.getElementById('room-contaner');
 const userContaner = document.getElementById('user-contaner');
 const messageForm = document.getElementById('send-message-form')
 const messageInput = document.getElementById('message-input')
+const nameInput = document.getElementById('name-input')
 
 if (messageForm != null) {
 	const name = prompt('What is your name?')
@@ -14,6 +15,13 @@ if (messageForm != null) {
 	messageForm.addEventListener('submit', e => {
 		e.preventDefault()
 		let message = messageInput.value
+		if (nameInput != null){
+			let userName = nameInput.value
+			if (userName != '' && userName != name){
+				console.log('yay')
+				socket.emit('name-chage', userName)
+			}
+		}
 		appendMessage(`You: ${message}`);
 		socket.emit('send-chat-message', roomName, message)
 		messageInput.value = '';
@@ -54,9 +62,12 @@ socket.on('chat-message', data => {
 socket.on('user-joined', UserName => {
 	if (UserName == name) return;
 	userContaner.innerText = ''
-	const headerList = document.createElement('p');
-	headerList.innerHTML = 'Members In ' + roomName;
-	messageContaner.append(headerList)
+
+	var headerList = document.createElement("p");
+	var text = document.createTextNode('Members In ' + roomName);
+	headerList.appendChild(text);
+	userContaner.appendChild(headerList);
+
 	appendMessage(`${UserName} joined!`);
 });
 
