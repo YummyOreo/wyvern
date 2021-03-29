@@ -26,7 +26,7 @@ app.post('/room', (req, res) => {
 
 app.get('/:room', (req, res) => {
 	if (rooms[req.params.room] == null) {
-		return res.redirect('/')
+		return res.render('error')
 	}
 
 	res.render('room', { roomName: req.params.room })
