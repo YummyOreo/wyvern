@@ -24,6 +24,8 @@ This Chat App is ment to not have you sign in, so that means it does not collect
 	* This will add a delete button for owners
 - [ ] And MORE!
 
+> To see my full checklist go [here](https://www.taskade.com/d/AjDQGcMqEVdw6EgX?share=view&view=YoqcbUwQAhDyyZ7d)
+
 ### List of features that ***might*** be implemented:
 - [ ] Room Perms
 	* Levels of perms
@@ -51,7 +53,7 @@ This Chat App is ment to not have you sign in, so that means it does not collect
 To install Node.js go to there [website](https://nodejs.org/en/).
 Next, in the command line, type `npm i`. This should install every node modual needed.
 
-## Run Website
+### Run Website
 Then, to run the server, type `npm run devStart`. This starts the `server.js` file.
 
 ### Local Host Website
@@ -62,7 +64,7 @@ The local Host website that this runs on is [http://localhost:3000](http://local
 ### What modules does it uses
 This uses `soket.io`, `ejs`, and `express`. (excluding `HTTPS` and `time`)
 ### How does it send messages?
-This uses `soket.io`, so we will use the methoid `soket.to(room).brodcast.emit()`. This sends a "emit" or Reqest to everyone in the room, other than the user sending the message 
+This uses `soket.io`, so we will use the methoid `soket.to(room).brodcast.emit()`. This sends a "emit" to everyone in the room, other than the user sending the message 
 ### What is a .ejs files?
 `.ejs` files are the same as `.html` files, but they are a little different, you can use JS by using `<% [js] %>` and it will act like a JS file! Example: 
 ```js
@@ -71,7 +73,7 @@ This uses `soket.io`, so we will use the methoid `soket.to(room).brodcast.emit()
 		<a href="/<%= room %>" class="waves-effect waves-light btn">Join</a>
 		<% }) %>
 ```
-Seen in `./views/index.ejs`!
+Seen in [`./views/index.ejs`](https://github.com/OreoDivision/chat-app-oreo/blob/main/views/index.ejs)!
 
 ## Developers
 All developers that have worked on the app will be listed here.
