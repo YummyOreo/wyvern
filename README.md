@@ -18,6 +18,8 @@ This Chat App is ment to not have you sign in, so that means it does not collect
 	* This will show you a list of open rooms to go and chat!
 - [x] Private rooms
 	* This will have your room not be on a public list, to join a private room, you need a direct link to the room
+- [x] Time when the message was sent and by who
+	* This shows what time it was sent at, and by who!
 - [ ] Room Deletion
 	* This will add a delete button for owners
 - [ ] And MORE!
