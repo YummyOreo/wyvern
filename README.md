@@ -64,7 +64,7 @@ The local Host website that this runs on is [http://localhost:3000](http://local
 ### What modules does it uses
 This uses [`soket.io`](https://socket.io/), [`ejs`](https://ejs.co/), and [`express`](https://expressjs.com/). (excluding [`HTTPS`](https://nodejs.org/api/https.html))
 ### How does it send messages?
-This uses `soket.io`, so we will use the methoid `soket.to(room).brodcast.emit()`. This sends a "emit" to everyone in the room, other than the user sending the message 
+We use [`soket.io`](https://socket.io/), so to send messages we use `soket.to(room).brodcast.emit()`. This sends a "emit" to everyone in the room, other than the user sending the message 
 ### What is a .ejs files?
 `.ejs` files are the same as `.html` files, but they are a little different, you can use JS by using `<% [js] %>` and it will act like a JS file! Example: 
 ```js
