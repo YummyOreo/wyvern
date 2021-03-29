@@ -119,6 +119,11 @@ function appendMessage(name, message, type, hours, minute) {
 	const messageName = document.createElement('div');
 	const br = document.createElement('br');
 	messageElement.innerText = message;
+	minute = minute.toString();
+	console.log(minute.length)
+	if (minute.length == 1){
+		minute = '0' + minute;
+	}
 	messageName.innerText = `${name} | ${hours}:${minute}`;
 	if (type == 'system'){
 		messageElement.className = 'deep-purple'
