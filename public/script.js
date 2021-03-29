@@ -9,7 +9,10 @@ const messageInput = document.getElementById('message-input')
 
 if (messageForm != null) {
 	let name = prompt('What is your name?')
-	appendMessage('You Joined', "join")
+	var d = new Date();
+	hours = d.getHours();
+	minutes = d.getMinutes();
+	appendMessage(name, ' Joined', "join", hours, minutes)
 	socket.emit('new-user', roomName, name);
 
 	nameChange.addEventListener('click', function() {
@@ -21,7 +24,10 @@ if (messageForm != null) {
 		console.log(name)
 		e.preventDefault()
 		let message = messageInput.value
-		appendMessage(`You: ${message}`, "you");
+		var d = new Date();
+		hours = d.getHours();
+		minutes = d.getMinutes();
+		appendMessage(`${name}`, `${message}`, "you", hours, minutes);
 		socket.emit('send-chat-message', roomName, message)
 		messageInput.value = '';
 	});
@@ -58,7 +64,10 @@ socket.on('userList', data => {
 });
 
 socket.on('chat-message', data => {
-	appendMessage(`${data.name}: ${data.message}`, "message");
+	var d = new Date();
+	hours = d.getHours();
+	minutes = d.getMinutes();
+	appendMessage(data.name, `${data.message}`, "message", hours, minutes);
 });
 
 socket.on('user-joined', UserName => {
@@ -69,16 +78,20 @@ socket.on('user-joined', UserName => {
 	var text = document.createTextNode('Members In ' + roomName);
 	headerList.appendChild(text);
 	userContaner.appendChild(headerList);
-
-	appendMessage(`${UserName} joined!`, "join");
+	var d = new Date();
+	hours = d.getHours();
+	minutes = d.getMinutes();
+	appendMessage(UserName, `joined!`, "join", hours, minutes);
 });
 
 socket.on('user-leave', UserName => {
 	if (UserName == name) return;
 	const deleteElement = document.getElementById(UserName);
 	deleteElement.remove();
-	messageContaner.append(deleteElement)
-	appendMessage(`${UserName} left.`, 'left');
+	var d = new Date();
+	hours = d.getHours();
+	minutes = d.getMinutes();
+	appendMessage(UserName, `left.`, 'left', hours, minutes);
 });
 
 socket.on('user-list', UserName => {
@@ -89,17 +102,13 @@ socket.on('user-list', UserName => {
 });
 
 
-function appendMessage(message, type) {
+function appendMessage(name, message, type, hours, minute) {
 	const messageElement = document.createElement('div');
+	const messageName = document.createElement('div');
+	const br = document.createElement('br');
 	messageElement.innerText = message;
-	if (type == 'left'){
-		messageElement.className = ""
-	} else if (type == 'join'){
-		messageElement.className = ""
-	} else if (type == 'message'){
-		messageElement.className = "white"
-	} else if (type == 'you'){
-		messageElement.className = "grey lighten-2"
-	}
+	messageName.innerText = `${name} | ${hours}:${minute}`;
+	messageContaner.append(messageName)
 	messageContaner.append(messageElement)
+	messageContaner.append(br)
 }
