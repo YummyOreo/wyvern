@@ -12,29 +12,29 @@ This Chat App is ment to not have you sign in, so that means it does not collect
 - [x] No Login
 	* this means we will never ask you to login to use our chat app!
 - [x] No chat messages/names loging
-	* We will never log anything
+	* We will never log anything.
 	* **Disclaimer:** In the repo there may be loging to console, this will be removed once it goes public. This is only for testing!
 - [x] Public rooms
 	* This will show you a list of open rooms to go and chat!
 - [x] Private rooms
-	* This will have your room not be on a public list, to join a private room, you need a direct link to the room
+	* This will have your room not be on a public list, to join a private room, you need a direct link to the room.
 - [x] Time when the message was sent and by who
 	* This shows what time it was sent at, and by who!
 - [ ] Room Deletion
-	* This will add a delete button for owners
+	* This will add a delete button for owners.
 - [ ] And MORE!
 
-> To see my full checklist go [here](https://www.taskade.com/d/AjDQGcMqEVdw6EgX?share=view&view=YoqcbUwQAhDyyZ7d)
+* To see my full checklist go [here](https://www.taskade.com/d/AjDQGcMqEVdw6EgX?share=view&view=YoqcbUwQAhDyyZ7d).
 
 ### List of features that ***might*** be implemented:
 - [ ] Room Perms
-	* Levels of perms
+	* Levels of perms to users.
 - [ ] Room Kicks
-	* Kick a user from the room
+	* Kick a user from the room.
 - [ ] Owner Crown
-	* Adds a crown to the owner in chat, and in the member list
+	* Adds a crown to the owner in chat, and in the member list.
 - [ ] API for the chat
-	* A api for devs that want to make bots
+	* A api for devs that want to make bots.
 
 ## How To Help
 ### You can help by:
@@ -43,7 +43,7 @@ This Chat App is ment to not have you sign in, so that means it does not collect
 	* You will also be added to [Foreked Devs](https://github.com/OreoDivision/chat-app-oreo#foreked-devs) list if it is accepted! 
 
 * Make Changes to the UI/Graphic Designe Changes
-	* If you do want to make UI/Graphic Designe Changes DM me on Discord. My tag is OreoDivision#0001. And we can talk about what you think should change about the UI/Graphic Designe Changes
+	* If you do want to make UI/Graphic Designe Changes DM me on Discord. My tag is OreoDivision#0001. And we can talk about what you think should change about the UI/Graphic Designe Changes.
 	* You will also be added to [Foreked Devs](https://github.com/OreoDivision/chat-app-oreo#foreked-devs) list if it is accepted! 
 
 ## How to run the chat app:
@@ -57,14 +57,14 @@ Next, in the command line, type `npm i`. This should install every node modual n
 Then, to run the server, type `npm run devStart`. This starts the `server.js` file.
 
 ### Local Host Website
-The local Host website that this runs on is [http://localhost:3000](http://localhost:3000)
+The local Host website that this runs on is [http://localhost:3000](http://localhost:3000).
 
 ## How it works:
 > **Disclaimer:** Does *not* explain __everything!__ Look in the code to **get exactly how it works.**
 ### What modules does it uses
-This uses [`soket.io`](https://socket.io/), [`ejs`](https://ejs.co/), and [`express`](https://expressjs.com/). (excluding [`HTTPS`](https://nodejs.org/api/https.html))
+This uses [`soket.io`](https://socket.io/), [`ejs`](https://ejs.co/), and [`express`](https://expressjs.com/). (excluding [`HTTPS`](https://nodejs.org/api/https.html)).
 ### How does it send messages?
-We use [`soket.io`](https://socket.io/), so to send messages we use `soket.to(room).brodcast.emit()`. This sends a "emit" to everyone in the room, other than the user sending the message 
+We use [`soket.io`](https://socket.io/), so to send messages we use `soket.to(room).brodcast.emit()`. This sends a "emit" to everyone in the room, other than the user sending the messag.e 
 ### What is a .ejs files?
 `.ejs` files are the same as `.html` files, but they are a little different, you can use JS by using `<% [js] %>` and it will act like a JS file! Example: 
 ```js
@@ -73,7 +73,7 @@ We use [`soket.io`](https://socket.io/), so to send messages we use `soket.to(ro
 		<a href="/<%= room %>" class="waves-effect waves-light btn">Join</a>
 		<% }) %>
 ```
-Seen in [`./views/index.ejs`](https://github.com/OreoDivision/chat-app-oreo/blob/main/views/index.ejs)!
+Seen in [`./views/index.ejs`](https://github.com/OreoDivision/chat-app-oreo/blob/main/views/index.ejs).
 
 ## Developers
 All developers that have worked on the app will be listed here.
@@ -83,9 +83,9 @@ All developers that have worked on the app will be listed here.
 ### Direct Devs:
 This lists everyone that worked on the main repo.
 * OreoDivision
-	* Head Dev
+	* Head Dev.
 * Polar Ice
-	* Graphic Designer
+	* Graphic Designer.
 
 ### Foreked Devs
 This lists everyone that has had there fork implemented into the main repo.
