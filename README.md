@@ -1,5 +1,5 @@
 <h1 align="center">About this Chat App</h1>
-<p align="center"><a href="https://github.com/OreoDivision/chat-app-oreo#about">About</a> ⦿ <a href="https://github.com/OreoDivision/chat-app-oreo#how-to-help">How To Help</a> ⦿ <a href="https://github.com/OreoDivision/chat-app-oreo#install-node">How to run the app</a> ⦿ <a href="https://github.com/OreoDivision/chat-app-oreo#how-it-works">How it works</a> ⦿ <a href="https://github.com/OreoDivision/chat-app-oreo#developers">Developers</a> ⦿ <a href="https://www.taskade.com/d/AjDQGcMqEVdw6EgX?share=view&view=YoqcbUwQAhDyyZ7d" target="_blank">"Trello" List</a></p>
+<p align="center"><a href="https://github.com/OreoDivision/chat-app-oreo#about">About</a> ⦿ <a href="https://github.com/OreoDivision/chat-app-oreo#how-to-help">How To Help</a> ⦿ <a href="https://github.com/OreoDivision/chat-app-oreo#install-node">How to run the app</a> ⦿ <a href="https://github.com/OreoDivision/chat-app-oreo#how-it-works">How it works</a> ⦿ <a href="https://github.com/OreoDivision/chat-app-oreo#developers">Developers</a> ⦿ <a href="https://www.taskade.com/d/AjDQGcMqEVdw6EgX?share=view&view=YoqcbUwQAhDyyZ7d" target="_blank">"Trello" List</a> ⦿ <a href="https://github.com/OreoDivision/chat-app-oreo/issues" target="_blank">Issues</a></p>
 
 ## About
 This Chat App is ment to not have you sign in, so that means it does not collect your data, or any data about anything! There will be private rooms, and public rooms. Public rooms are shown on the main page. Private rooms need a link.
@@ -45,9 +45,11 @@ This Chat App is ment to not have you sign in, so that means it does not collect
 * Make Changes to the UI/Graphic Designe Changes
 	* If you do want to make UI/Graphic Designe Changes DM me on Discord. My tag is OreoDivision#0001. And we can talk about what you think should change about the UI/Graphic Designe Changes.
 	* You will also be added to [Foreked Devs](https://github.com/OreoDivision/chat-app-oreo#foreked-devs) list if it is accepted! 
+* Making bug reports
+	* If you see a bug, report it to [here](https://github.com/OreoDivision/chat-app-oreo/issues), or [fork it](https://github.com/OreoDivision/chat-app-oreo/issues)!
 
 ## How to run the chat app:
-> **Disclaimer:** Not everything works, __feel free__ **to fork** this and work on it, *tell me if you do, and I might add your fixes/additions to the repo!* go [here](https://github.com/OreoDivision/chat-app-oreo#how-to-help).
+> **Disclaimer:** Not everything works, __feel free__ **to fork** this and work on it, *tell me if you do, and I might add your fixes/additions to the repo!* for more info go [here](https://github.com/OreoDivision/chat-app-oreo#how-to-help). You can also report bugs/issues [here](https://github.com/OreoDivision/chat-app-oreo/issues).
 
 ### Install Node
 To install Node.js go to there [website](https://nodejs.org/en/).
