@@ -9,7 +9,7 @@ app.use(express.static('public'))
 app.use(express.urlencoded({ exteneded: true }))
 
 const rooms = {}
-//test
+
 app.get('/', (req, res) => {
 	res.render('index', { rooms: rooms })
 })
