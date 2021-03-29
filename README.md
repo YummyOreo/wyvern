@@ -4,8 +4,7 @@
 ## About
 This Chat App is ment to not have you sign in, so that means it does not collect your data, or any data about anything! There will be private rooms, and public rooms. Public rooms are shown on the main page. Private rooms need a link.
 
-## Discord
-#### [Link](https://discord.com/invite/9kvTg7Pk5W) 
+## Discord [Link](https://discord.com/invite/9kvTg7Pk5W) 
 This is where you can talk about code questions, the app, or anything. You can get intuch with me to contribute to the app or get help on something.
 
 ### List of features:
