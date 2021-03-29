@@ -29,7 +29,7 @@ This Chat App is ment to not have you sign in, so that means it does not collect
 ### List of features that ***might*** be implemented:
 - [ ] Room Perms
 	* Levels of perms to users.
-- [ ] Room Kicks
+- [x] Room Kicks
 	* Kick a user from the room.
 - [ ] Owner Crown
 	* Adds a crown to the owner in chat, and in the member list.
