@@ -49,6 +49,24 @@ io.on('connection', socket => {
 	socket.on('send-chat-message', (room, message) => {
 		name = rooms[room].users[socket.id]
 		if (name == null) name = 'Guest'
+		if (message.startsWith('!')){
+			const [command, ...args] = message
+			.trim()
+			.substring('!'.length)
+			.split(/\s+/);
+			if (command === "kick"){
+				let kickName = args.slice(0).join(" ");
+				console.log(kickName)
+				for (user in rooms[room].users) {
+					if (rooms[room].users[user] == kickName) {
+						socket.to(user).emit('kicked', name)
+						socket.emit('kick-success', kickName)
+						return;
+					}
+				}
+				return;
+			}
+		}
 		socket.to(room).broadcast.emit('chat-message', { message: message, name: name });
 	})
 	socket.on('disconnect', () => {

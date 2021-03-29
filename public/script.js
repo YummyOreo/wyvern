@@ -57,6 +57,18 @@ socket.on('room-created', (room, private) => {
 	roomContaner.append(roomLink)
 })
 
+socket.on(`kicked`, () => {
+	console.log('yay?')
+	socket.emit('leave')
+})
+
+socket.on('kick-success', kickName => {
+	var d = new Date();
+	hours = d.getHours();
+	minutes = d.getMinutes();
+	appendMessage(`System`, `${kickName} has been kicked!`, "system", hours, minutes);
+})
+
 socket.on('userList', data => {
 	for(id in data) {
 		console.log(id)
@@ -108,6 +120,10 @@ function appendMessage(name, message, type, hours, minute) {
 	const br = document.createElement('br');
 	messageElement.innerText = message;
 	messageName.innerText = `${name} | ${hours}:${minute}`;
+	if (type == 'system'){
+		messageElement.className = 'deep-purple'
+		messageName.className = 'deep-purple'
+	}
 	messageContaner.append(messageName)
 	messageContaner.append(messageElement)
 	messageContaner.append(br)
