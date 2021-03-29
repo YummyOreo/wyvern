@@ -60,10 +60,11 @@ io.on('connection', socket => {
 				for (user in rooms[room].users) {
 					if (rooms[room].users[user] == kickName) {
 						socket.to(user).emit('kicked', name)
-						socket.emit('kick-success', kickName)
+						socket.emit('kick-success', `${kickName} has been kicked!`)
 						return;
 					}
 				}
+				socket.emit('kick-success', `${kickName} is not in this room.`)
 				return;
 			}
 		}

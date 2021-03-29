@@ -62,11 +62,11 @@ socket.on(`kicked`, () => {
 	socket.emit('leave')
 })
 
-socket.on('kick-success', kickName => {
+socket.on('kick-success', message => {
 	var d = new Date();
 	hours = d.getHours();
 	minutes = d.getMinutes();
-	appendMessage(`System`, `${kickName} has been kicked!`, "system", hours, minutes);
+	appendMessage(`System`, `${message}`, "system", hours, minutes);
 })
 
 socket.on('userList', data => {
