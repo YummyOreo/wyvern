@@ -39,6 +39,14 @@ if (messageForm != null) {
 
 }
 
+socket.on('user-changed-name', () => {
+	userContaner.innerText = ''
+	var headerList = document.createElement("p");
+	var text = document.createTextNode('Members In ' + roomName);
+	headerList.appendChild(text);
+	userContaner.appendChild(headerList);
+})
+
 socket.on('redirect', function(destination) {
     window.location.href = destination;
 });
@@ -58,7 +66,6 @@ socket.on('room-created', (room, private) => {
 })
 
 socket.on(`kicked`, () => {
-	console.log('yay?')
 	socket.emit('leave')
 })
 

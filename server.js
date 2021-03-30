@@ -90,6 +90,12 @@ io.on('connection', socket => {
 	})
 	socket.on('name-chage', (room, name) => {
 		rooms[room].users[socket.id] = name;
+		socket.to(room).emit("user-changed-name")
+		socket.emit("user-changed-name")
+		for (user in rooms[room].users){
+			socket.to(room).emit("user-list", rooms[room].users[user])
+			socket.emit("user-list", rooms[room].users[user])
+		}
 	})
 })
 

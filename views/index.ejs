@@ -10,7 +10,7 @@
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 </head>
 <body>
-	<div id="room-contaner">
+	<div id="room-contaner" align="center">
 		<% Object.keys(rooms).forEach(room => { console.log(rooms); if (rooms[room].public == "on") {return;} %>
 		<div><%= room; %></div>
 		<a href="/<%= room %>" class="waves-effect waves-light btn">Join</a>
