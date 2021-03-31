@@ -10,6 +10,7 @@
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 </head>
 <body>
+<div class="container">
 	<div id="room-contaner" align="center">
 		<% Object.keys(rooms).forEach(room => { console.log(rooms); if (rooms[room].public == "on") {return;} %>
 		<div><%= room; %></div>
@@ -30,5 +31,6 @@
 			  <br>
 			<button type="submit" class="waves-effect waves-light btn">New Room</button>
 	</form>
+</div>
 </body>
 </html>

@@ -18,6 +18,7 @@ if (messageForm != null) {
 
 	nameChange.addEventListener('click', function() {
 		name = prompt('What is your new name?')
+		if (name == '') return;
 		socket.emit('name-chage', roomName, name)
 	})
 
