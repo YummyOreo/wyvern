@@ -1,5 +1,5 @@
 <h1 align="center">About this Chat App</h1>
-<p align="center"><a href="https://github.com/OreoDivision/chat-app-oreo#about">About</a> ⦿ <a href="https://github.com/OreoDivision/chat-app-oreo#how-to-help">How To Help</a> ⦿ <a href="https://github.com/OreoDivision/chat-app-oreo#install-node">How to run the app</a> ⦿ <a href="https://github.com/OreoDivision/chat-app-oreo#how-it-works">How it works</a> <br> <a href="https://github.com/OreoDivision/chat-app-oreo#developers">Developers</a> ⦿ <a href="https://www.taskade.com/d/AjDQGcMqEVdw6EgX?share=view&view=YoqcbUwQAhDyyZ7d">"Trello" List</a> ⦿ <a href="https://github.com/OreoDivision/chat-app-oreo/issues">Issues</a> ⦿ <a href="https://github.com/OreoDivision/chat-app-oreo/wiki">Wiki</a></p>
+<p align="center"><a href="https://github.com/OreoDivision/chat-app-oreo#about">About</a> ⦿ <a href="https://github.com/OreoDivision/chat-app-oreo#how-to-help">How To Help</a> ⦿ <a href="https://github.com/OreoDivision/chat-app-oreo#install-node">How to run the app</a> ⦿ <a href="https://github.com/OreoDivision/chat-app-oreo#how-it-works">How it works</a> <br> <a href="https://github.com/OreoDivision/chat-app-oreo#developers">Developers</a> ⦿ <a href="https://www.taskade.com/d/AjDQGcMqEVdw6EgX?share=view&view=dtP5qeBzR9kZ46ea">"Trello" List</a> ⦿ <a href="https://github.com/OreoDivision/chat-app-oreo/issues">Issues</a> ⦿ <a href="https://github.com/OreoDivision/chat-app-oreo/wiki">Wiki</a></p>
 
 ## About
 This Chat App is ment to not have you sign in, so that means it does not collect your data, or any data about anything! There will be private rooms, and public rooms. Public rooms are shown on the main page. Private rooms need a link.
@@ -25,7 +25,7 @@ This is where you can talk about code questions, the app, or anything. You can g
 	* This will add a delete button for owners.
 - [ ] And MORE!
 
-* To see my full checklist go [here](https://www.taskade.com/d/AjDQGcMqEVdw6EgX?share=view&view=YoqcbUwQAhDyyZ7d).
+* To see my full checklist go [here](https://www.taskade.com/d/AjDQGcMqEVdw6EgX?share=view&view=dtP5qeBzR9kZ46ea).
 
 ### List of features that ***might*** be implemented:
 - [ ] Room Perms
