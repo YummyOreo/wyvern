@@ -32,7 +32,7 @@ This is where you can talk about code questions, the app, or anything. You can g
 	* Levels of perms to users.
 - [x] Room Kicks
 	* Kick a user from the room.
-- [ ] Owner Crown
+- [x] Owner/Owner Crown
 	* Adds a crown to the owner in chat, and in the member list.
 - [ ] API for the chat
 	* A api for devs that want to make bots.

@@ -20,7 +20,7 @@ app.post('/room', (req, res) => {
 	}
 	console.log(req.body.private + '/room')
 	rooms[req.body.room] = { users: {}, public: req.body.private }
-	res.redirect(req.body.room)
+	res.redirect(req.body.room + '/owner')
 	io.emit('room-created', req.body.room)
 })
 
@@ -30,6 +30,22 @@ app.get('/:room', (req, res) => {
 	}
 
 	res.render('room', { roomName: req.params.room })
+})
+
+app.get('/:room/settings', (req, res) => {
+	if (rooms[req.params.room] == null) {
+		return res.render('error')
+	}
+	console.log(req.params.room)
+	res.render('settings', { roomName: req.params.room })
+})
+
+app.get('/:room/owner', (req, res) => {
+	if (rooms[req.params.room] == null) {
+		return res.render('error')
+	}
+	console.log(req.params.room)
+	res.render('owner-room', { roomName: req.params.room })
 })
 
 server.listen(3000)
@@ -96,6 +112,9 @@ io.on('connection', socket => {
 			socket.to(room).emit("user-list", rooms[room].users[user])
 			socket.emit("user-list", rooms[room].users[user])
 		}
+	})
+	socket.on('privacy-change', (room, value) => {
+		rooms[room].public = value;
 	})
 })
 

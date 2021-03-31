@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Chat App</title>
+	<script>
+		const roomName = "<%= roomName %>"
+	</script>
+	<script defer src="http://localhost:3000/socket.io/socket.io.js"></script>
+	<script defer src="../settings.js"></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+</head>
+
+<body>
+	<nav>
+		<div class='nav-wrapper'>
+			<a class="waves-effect waves-light btn" id='back'>Back To <%= roomName %></a>
+			<a class="brand-logo center" id="title"><%= roomName %> Settings</a>
+		</div>
+	</nav>
+	<br>
+	<div align="center">
+	<form id='settings'>
+		<div class="switch">
+				<label>
+				  Public
+				  <input type="checkbox" id='private'>
+				  <span class="lever"></span>
+				  Private
+				</label>
+			  </div>
+			  <br>
+			<button type="submit" class="waves-effect waves-light btn">Save</button>
+	</form>
+	</div>
+</body>
+
+</html>

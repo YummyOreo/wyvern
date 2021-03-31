@@ -10,7 +10,7 @@
 		const roomName = "<%= roomName %>"
 	</script>
 	<script defer src="http://localhost:3000/socket.io/socket.io.js"></script>
-	<script defer src="script.js"></script>
+	<script defer src="../script.js"></script>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 </head>
 
@@ -19,6 +19,7 @@
 		<div class='nav-wrapper'>
 			<a class="waves-effect waves-light btn" id='back'>Back To Home</a>
 			<a class="waves-effect waves-light btn" id='name'>Change Your Name</a>
+			<a class="waves-effect waves-light btn" id='settings'>Settings</a>
 			<a class="brand-logo center" id="title"><%= roomName %></a>
 		</div>
 	</nav>
