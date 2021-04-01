@@ -17,13 +17,14 @@
 <body>
 	<nav style="border-radius: 10px;">
 		<div class='nav-wrapper'>
+			<a id='back'>⠀⠀⠀</a>
 			<a class="waves-effect waves-light btn" id='back'>Back To Home</a>
 			<a class="waves-effect waves-light btn" id='name'>Change Your Name</a>
 			<a class="brand-logo center" id="title"><%= roomName %></a>
 		</div>
 	</nav>
 <div class="row">
-	<div class="col s3" style="background-color: #90a4ae; min-height: 100rem; border-radius: 10px;">
+	<div class="col s2" style="background-color: #828282; min-height: 100rem; border-radius: 10px;">
 	<div class='contaner' align="center">
 
 	<div id='user-contaner'>
@@ -31,14 +32,14 @@
 	</div>
 	</div>
 	</div>
-	<div class="col s9" style="background-color: #4db6ac; min-height: 100rem; border-radius: 10px; ">
+	<div class="col s10" style="background-color: #4db6ac; min-height: 100rem; border-radius: 10px; ">
 	<div class='contaner' align="center">
 	<div id='message-contaner'>
 		<p>Start Of Chat</p>
 	</div>
 		<form id='send-message-form'>
 			
-			<textarea placeholder="Message" rows="4" cols="50" form="send-message-form" id="message-input" style="background-color: rgba(0,0,0,0.15)" required></textarea>
+			<textarea placeholder="Message" type='text' rows="4" cols="50" form="send-message-form" id="message-input" style="background-color: rgba(0,0,0,0.15)" required></textarea>
 			<br>
 			<button type='submit' id='send-message' class="waves-effect waves-light btn">Send</button>
 		</form>

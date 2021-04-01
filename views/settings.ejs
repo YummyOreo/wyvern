@@ -16,17 +16,17 @@
 
 <body>
 	<nav>
-		<div class='nav-wrapper'>
+		<div class='nav-wrapper' style="border-radius: 5px;">
 			<a class="waves-effect waves-light btn" id='back'>Back To <%= roomName %></a>
 			<a class="brand-logo center" id="title"><%= roomName %> Settings</a>
 		</div>
 	</nav>
-	<br>
-<div class="container">
+<div style="background-color: #4db6ac; min-height: 100rem; border-radius: 10px;">
+<div class="container" >
 	<div align="center">
 	<form id='settings'>
 		<div class="switch">
-				<label>
+				<label style="color: white;">
 				  Public
 				  <input type="checkbox" id='private'>
 				  <span class="lever"></span>
@@ -37,6 +37,7 @@
 			<button type="submit" class="waves-effect waves-light btn">Save</button>
 	</form>
 	</div>
+</div>
 </div>
 </body>
 
