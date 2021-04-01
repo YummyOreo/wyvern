@@ -53,7 +53,7 @@ server.listen(3000)
 io.on('connection', socket => {
 	socket.on("check-name", (name, room) => {
 		for (id in rooms[room].users){
-			if (rooms[room].users[id] == name) return socket.emit('sendback-name', false);
+			if (rooms[room].users[id] == name && id != socket.id) return socket.emit('sendback-name', false);
 		} 
 		socket.emit('sendback-name', true)
 	})
