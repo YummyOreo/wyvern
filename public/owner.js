@@ -16,6 +16,14 @@ if (messageForm != null) {
 	socket.on("owner-sendback", sendBack => {
 		if (sendBack == false) return window.location.href = '/' + roomName;
 		name = prompt('What is your name?')
+		socket.emit('check-name', name, roomName)
+		socket.on('sendback-name', status => {
+			if (status == false) {
+				name = prompt('Name Taken, Whats your new name?')
+				socket.emit('check-name', name, roomName)
+				return
+			}
+		})
 		var d = new Date();
 		hours = d.getHours();
 		minutes = d.getMinutes();
@@ -23,12 +31,24 @@ if (messageForm != null) {
 		socket.emit('new-user', roomName, name);
 	})	
 
-	
+	function nameChanegFunc(){
+		let nameNew = prompt('What is your new name?')
+		if (nameNew == '' || nameNew == null) return;
+		socket.emit('check-name', nameNew, roomName)
+		socket.on('sendback-name', status => {
+			if (status == false) {
+				nameNew = prompt('Name Taken, What is your new name?')
+				if (nameNew == '' || nameNew == null) return;
+				socket.emit('check-name', nameNew, roomName)
+		}
+		if (nameNew == '' || nameNew == null) return;
+		name = nameNew;
+		socket.emit('name-chage', roomName, nameNew)
+	})
+	}
 
 	nameChange.addEventListener('click', function() {
-		name = prompt('What is your new name?')
-		if (name == '') return;
-		socket.emit('name-chage', roomName, name)
+		nameChanegFunc()
 	})
 
 	messageForm.addEventListener('submit', e => {
@@ -47,12 +67,6 @@ if (messageForm != null) {
 		console.log('clicked')
 		socket.emit('leave')
 	});
-	if (settings != null){
-		settings.addEventListener('click', e => {
-			console.log('clicked')
-			window.location.href = `/${roomName}` +'/settings'
-		});
-	}
 
 }
 
