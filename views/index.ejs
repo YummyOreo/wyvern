@@ -10,27 +10,41 @@
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 </head>
 <body>
-<div class="container">
-	<div id="room-contaner" align="center">
-		<% Object.keys(rooms).forEach(room => { console.log(rooms); if (rooms[room].public == "on") {return;} %>
-		<div><%= room; %></div>
-		<a href="/<%= room %>" class="waves-effect waves-light btn">Join</a>
-		<% }) %>
+	<nav style="border-radius: 10px;">
+		<div class='nav-wrapper'>
+			<a class="brand-logo center">Chat App</a>
+		</div>
+	</nav>
+<div class="row">
+	<div class="col s3" style="background-color: #90a4ae; min-height: 100rem; border-radius: 10px;">
+		<div class='contaner' align="center">
 
+			<div id="room-contaner">
+				<% Object.keys(rooms).forEach(room => { console.log(rooms); if (rooms[room].public == "on") {return;} %>
+				<div><%= room; %></div>
+				<a href="/<%= room %>" class="waves-effect waves-light btn">Join</a>
+				<% }) %>
+
+			</div>
+		</div>
 	</div>
-	<form action='/room' method="POST">
-			<input placeholder="Room Name" name="room" type='text' required>
-			  <div class="switch">
-				<label>
-				  Public
-				  <input type="checkbox" name='private'>
-				  <span class="lever"></span>
-				  Private
-				</label>
-			  </div>
-			  <br>
+	<div class="col s9" style="background-color: #4db6ac; min-height: 100rem; border-radius: 10px; ">
+		<div class='contaner' align="center">
+			<form action='/room' method="POST">
+				<input placeholder="Room Name" name="room" type='text' required>
+					<div class="switch">
+						<label>
+							Public
+							<input type="checkbox" name='private'>
+							<span class="lever"></span>
+							Private
+							</label>
+					</div>
+				<br>
 			<button type="submit" class="waves-effect waves-light btn">New Room</button>
 	</form>
+		</div>
+	</div>
 </div>
 </body>
 </html>

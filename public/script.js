@@ -38,11 +38,12 @@ if (messageForm != null) {
 		console.log('clicked')
 		socket.emit('leave')
 	});
-
-	settings.addEventListener('click', e => {
-		console.log('clicked')
-		window.location.href = `/${roomName}` +'/settings'
-	});
+	if (settings != null){
+		settings.addEventListener('click', e => {
+			console.log('clicked')
+			window.location.href = `/${roomName}` +'/settings'
+		});
+	}
 
 }
 

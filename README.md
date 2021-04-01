@@ -54,13 +54,35 @@ This is where you can talk about code questions, the app, or anything. You can g
 
 ### Install Node
 To install Node.js go to there [website](https://nodejs.org/en/).
-Then you **can** run the exe named "run.exe" __or__ in the command line, type `npm i`. This should install every node modual needed.
 
-### Run Website
-Then, to run the server, type `npm run devStart`. This starts the `server.js` file.
+### Clone the repo:
+> You can also download the files
+```console
+$ git clone https://github.com/OreoDivision/chat-app-oreo
+$ cd chat-app-oreo
+```
+### Way one:
+> Console
+
+### Install dependencies:
+```cosnole
+$ npm i
+```
+
+### Run Website:
+```console
+$ npm run devStart
+```
+> This starts the `server.js` file.
 
 ### Local Host Website
 The local Host website that this runs on is [http://localhost:3000](http://localhost:3000).
+
+### Way 2
+> EXE
+## Run the exe:
+Click the run.exe twice and it should run the server!
+> See `./PY for .exe/run.py` for the code for this, and read the `README.txt`!
 
 ## How it works:
 > **Disclaimer:** Does *not* explain __everything!__ Look in the code to **get exactly how it works.**
