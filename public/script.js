@@ -2,7 +2,6 @@ const socket = io('http://localhost:3000')
 const messageContaner = document.getElementById('message-contaner');
 const back = document.getElementById('back');
 const nameChange = document.getElementById('name');
-const roomContaner = document.getElementById('room-contaner');
 const userContaner = document.getElementById('user-contaner');
 const messageForm = document.getElementById('send-message-form')
 const messageInput = document.getElementById('message-input')
@@ -75,20 +74,6 @@ socket.on('user-changed-name', () => {
 socket.on('redirect', function(destination) {
     window.location.href = destination;
 });
-
-socket.on('room-created', (room, private) => {
-	if (private == true){
-		return
-	}
-	const roomElemet = document.createElement('div')
-	roomElemet.innerText = room
-	const roomLink = document.createElement('a')
-	roomLink.href = `/${room}`
-	roomLink.innerText = 'join'
-	roomLink.className = "waves-effect waves-light btn"
-	roomContaner.append(roomElemet)
-	roomContaner.append(roomLink)
-})
 
 socket.on(`kicked`, () => {
 	socket.emit('leave')
