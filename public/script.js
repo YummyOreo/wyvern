@@ -10,11 +10,20 @@ const settings = document.getElementById('settings')
 //start
 if (messageForm != null) {
 	let name = prompt('What is your name?')
-	var d = new Date();
-	hours = d.getHours();
-	minutes = d.getMinutes();
-	appendMessage(name, ' Joined', "join", hours, minutes)
-	socket.emit('new-user', roomName, name);
+	socket.emit('check-name', name, roomName)
+	socket.on('sendback-name', status => {
+		if (status == false) {
+			name = prompt('Name Taken, Whats your new name?')
+			socket.emit('check-name', name, roomName)
+			return
+		}
+		var d = new Date();
+		hours = d.getHours();
+		minutes = d.getMinutes();
+		appendMessage(name, ' Joined', "join", hours, minutes)
+		socket.emit('new-user', roomName, name);
+
+	})
 
 	nameChange.addEventListener('click', function() {
 		name = prompt('What is your new name?')

@@ -51,7 +51,13 @@ app.get('/:room/owner', (req, res) => {
 server.listen(3000)
 
 io.on('connection', socket => {
-	socket.on('new-owner', (room) => {
+	socket.on("check-name", (name, room) => {
+		for (id in rooms[room].users){
+			if (rooms[room].users[id] == name) return socket.emit('sendback-name', false);
+		} 
+		socket.emit('sendback-name', true)
+	})
+	socket.on('new-owner', room => {
 		sendBack = false;
 		if (rooms[room].owner == null){
 			sendBack = true;
