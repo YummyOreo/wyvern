@@ -19,7 +19,7 @@ app.post('/room', (req, res) => {
 		return res.redirect('/')
 	}
 	console.log(req.body.private + '/room')
-	rooms[req.body.room] = { users: {}, public: req.body.private }
+	rooms[req.body.room] = { users: {}, public: req.body.private, owner: null }
 	res.redirect(req.body.room + '/owner')
 	io.emit('room-created', req.body.room)
 })
@@ -51,6 +51,14 @@ app.get('/:room/owner', (req, res) => {
 server.listen(3000)
 
 io.on('connection', socket => {
+	socket.on('new-owner', (room) => {
+		sendBack = false;
+		if (rooms[room].owner == null){
+			sendBack = true;
+			rooms[room].owner = socket.id;
+		}
+		socket.emit('owner-sendback', sendBack);
+	})
 	socket.on('new-user', (room, name) => {
 		if (name == null) name = 'Guest'
 		socket.join(room)
@@ -65,23 +73,25 @@ io.on('connection', socket => {
 	socket.on('send-chat-message', (room, message) => {
 		name = rooms[room].users[socket.id]
 		if (name == null) name = 'Guest'
-		if (message.startsWith('!')){
-			const [command, ...args] = message
-			.trim()
-			.substring('!'.length)
-			.split(/\s+/);
-			if (command === "kick"){
-				let kickName = args.slice(0).join(" ");
-				console.log(kickName)
-				for (user in rooms[room].users) {
-					if (rooms[room].users[user] == kickName) {
-						socket.to(user).emit('kicked', name)
-						socket.emit('kick-success', `${kickName} has been kicked!`)
-						return;
+		if (socket.id == rooms[room].owner) {
+			if (message.startsWith('!')){
+				const [command, ...args] = message
+				.trim()
+				.substring('!'.length)
+				.split(/\s+/);
+				if (command === "kick"){
+					let kickName = args.slice(0).join(" ");
+					console.log(kickName)
+					for (user in rooms[room].users) {
+						if (rooms[room].users[user] == kickName) {
+							socket.to(user).emit('kicked', name)
+							socket.emit('kick-success', `${kickName} has been kicked!`)
+							return;
+						}
 					}
+					socket.emit('kick-success', `${kickName} is not in this room.`)
+					return;
 				}
-				socket.emit('kick-success', `${kickName} is not in this room.`)
-				return;
 			}
 		}
 		socket.to(room).broadcast.emit('chat-message', { message: message, name: name });
@@ -91,6 +101,7 @@ io.on('connection', socket => {
 			name = rooms[room].users[socket.id]
 			if (name == null) name = 'Guest'
 			socket.to(room).broadcast.emit('user-leave', name)
+			if (socket.id == rooms[room].owner) rooms[room].owner = null;
 			delete rooms[room].users[socket.id]
 		})
 	})
@@ -99,6 +110,7 @@ io.on('connection', socket => {
 			name = rooms[room].users[socket.id]
 			if (name == null) name = 'Guest'
 			socket.to(room).broadcast.emit('user-leave', name)
+			if (socket.id == rooms[room].owner) rooms[room].owner = null;
 			delete rooms[room].users[socket.id]
 			socket.emit('redirect', '/');
 
