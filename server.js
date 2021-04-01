@@ -37,7 +37,7 @@ app.get('/:room/settings', (req, res) => {
 		return res.render('error')
 	}
 	console.log(req.params.room)
-	res.render('settings', { roomName: req.params.room })
+	res.render('settings', { roomName: req.params.room, rooms: rooms })
 })
 
 app.get('/:room/owner', (req, res) => {

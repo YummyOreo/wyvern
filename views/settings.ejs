@@ -28,7 +28,11 @@
 		<div class="switch">
 				<label style="color: white;">
 				  Public
+				  <% if(rooms[roomName].public == 'on'){ %>
+				  <input type="checkbox" id='private'checked>
+				  <% } else { %>
 				  <input type="checkbox" id='private'>
+				  <% } %>
 				  <span class="lever"></span>
 				  Private
 				</label>

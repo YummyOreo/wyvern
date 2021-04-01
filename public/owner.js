@@ -51,6 +51,10 @@ if (messageForm != null) {
 		nameChanegFunc()
 	})
 
+	settings.addEventListener('click', function() {
+		window.location.href = `/${roomName}/settings`
+	})
+
 	messageForm.addEventListener('submit', e => {
 		console.log(name)
 		e.preventDefault()
@@ -94,10 +98,6 @@ socket.on('room-created', (room, private) => {
 	roomLink.className = "waves-effect waves-light btn"
 	roomContaner.append(roomElemet)
 	roomContaner.append(roomLink)
-})
-
-socket.on(`kicked`, () => {
-	socket.emit('leave')
 })
 
 socket.on('kick-success', message => {
