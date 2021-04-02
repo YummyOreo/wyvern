@@ -1,4 +1,4 @@
-<img align="center" src="./assets/icons/logo/Icon.png" style="border-radius: 25%;
+<img align="center" src="https://github.com/OreoDivision/wyvern/blob/main/assets/icons/logo/icon.png" style="border-radius: 25%;
 " width="300" height="300">
 
 <h1 align="center">About Wyvern</h1>
