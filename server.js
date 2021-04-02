@@ -23,7 +23,7 @@ app.post('/room', (req, res) => {
 		return res.redirect('/')
 	}
 	console.log(req.body.private + '/room')
-	rooms[req.body.room] = { users: {}, public: req.body.private, owner: false, slowmode: 1 }
+	rooms[req.body.room] = { users: {}, public: req.body.private, owner: null, slowmode: 1 }
 	res.redirect(req.body.room + '/owner')
 	io.emit('room-created', req.body.room)
 })
@@ -100,9 +100,13 @@ io.on('connection', socket => {
 		}
 	})
 	socket.on('send-chat-message', (room, message) => {
-		if (slowmode == rooms[room].slowmode && socket.id != rooms[room].owner){
-			socket.emit('kick-success', `You can send a message every ${rooms[room].slowmode} second`)
-			return;
+		if (slowmode == rooms[room].slowmode){
+			if (socket.id == rooms[room].owner){
+
+			}else {
+				socket.emit('kick-success', `You can send a message every ${rooms[room].slowmode} second`)
+				return;
+			}
 		}
 		name = rooms[room].users[socket.id]
 		if (name == null) name = 'Guest'

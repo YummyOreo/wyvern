@@ -9,8 +9,14 @@ settings = document.getElementById('settings')
 //start
 if (messageForm != null) {
 	
-	if (owner == true){
+	if (settings != null){
+		console.log('owner')
 		socket.emit('new-owner', roomName)
+		socket.on("owner-sendback", results => {
+			if (results == false){
+				window.location.href = `/${roomName}`
+			}
+		})
 	}
 
 
