@@ -1,6 +1,5 @@
 <div align="center">
-	<img align="center" src="https://github.com/OreoDivision/wyvern/blob/main/assets/icons/logo/icon.png" style="border-radius: 25%;
-" width="300" height="300">
+	<img align="center" src="https://github.com/OreoDivision/wyvern/blob/main/assets/icons/logo/icon.png" width="300" height="300" style="border-radius: 25%;">
 </div>
 
 <h1 align="center">About Wyvern</h1>
