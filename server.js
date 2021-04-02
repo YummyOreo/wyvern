@@ -4,7 +4,7 @@ const server = require('http').Server(app);
 const io = require('socket.io')(server);
 
 app.set('views', './views')
-app.set('view engine', 'ejs')
+app.set('view engine', 'ejs', 'html')
 app.use(express.static('public'))
 app.use(express.urlencoded({ exteneded: true }))
 
@@ -34,7 +34,7 @@ app.get('/:room', (req, res) => {
 
 app.get('/:room/settings', (req, res) => {
 	if (rooms[req.params.room] == null) {
-		return res.render('error')
+		return res.redirect('/')
 	}
 	console.log(req.params.room)
 	res.render('settings', { roomName: req.params.room, rooms: rooms })
@@ -42,7 +42,7 @@ app.get('/:room/settings', (req, res) => {
 
 app.get('/:room/owner', (req, res) => {
 	if (rooms[req.params.room] == null) {
-		return res.render('error')
+		return res.redirect('/')
 	}
 	console.log(req.params.room)
 	res.render('room', { roomName: req.params.room, owner: true })
