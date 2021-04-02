@@ -9,7 +9,7 @@ back.addEventListener('click', () => {
 });
 
 deleteRoom.addEventListener('click', () => {
-	let deleteTest = prompt('Retype the name of the room ' + roomName);
+	let deleteTest = prompt('Retype the name of the room (' + roomName + ')');
 	if (deleteTest != roomName){
 		window.alert("Incorrect")
 		return;
