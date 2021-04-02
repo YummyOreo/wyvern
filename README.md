@@ -1,3 +1,4 @@
+<img src="./assets/icons/logo/Icon.png" alt="Logo" align="center">
 <h1 align="center">About Wyvern</h1>
 <p align="center"><a href="https://github.com/OreoDivision/wyvern#about">About</a> ⦿ <a href="https://github.com/OreoDivision/wyvern#how-to-help">How To Help</a> ⦿ <a href="https://github.com/OreoDivision/wyvern#how-to-run-wyvern">How to run Wyvern</a> ⦿ <a href="https://github.com/OreoDivision/wyvern#how-it-works">How it works</a> <br> <a href="https://github.com/OreoDivision/wyvern#developers">Developers</a> ⦿ <a href="https://www.taskade.com/d/AjDQGcMqEVdw6EgX?share=view&view=dtP5qeBzR9kZ46ea">"Trello" List</a> ⦿ <a href="https://github.com/OreoDivision/wyvern/issues">Issues</a> ⦿ <a href="https://github.com/OreoDivision/wyvern/wiki">Wiki</a></p>
 
@@ -80,7 +81,7 @@ The local Host website that this runs on is [http://localhost:3000](http://local
 
 ### Way 2
 > EXE
-## Run the exe:
+### Run the exe:
 Click the run.exe twice and it should run the server!
 > See `./PY for .exe/run.py` for the code for this, and read the `README.txt`!
 

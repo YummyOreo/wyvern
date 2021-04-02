@@ -12,16 +12,17 @@
 	<script defer src="http://localhost:3000/socket.io/socket.io.js"></script>
 	<script defer src="../settings.js"></script>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+	<link rel="shortcut icon" type="image/x-icon" href="https://cdn.discordapp.com/attachments/826150434581643264/827516742280544287/Icon.png">
 </head>
 
 <body>
-	<nav>
-		<div class='nav-wrapper' style="border-radius: 5px;">
-			<a class="waves-effect waves-light btn" id='back'>Back To <%= roomName %></a>
+	<nav style="border-radius: 5px; background-color: #83ce73;">
+		<div class='nav-wrapper'>
+			<a class="waves-effect waves-light btn" id='back' style="background-color: #538548">Back To <%= roomName %></a>
 			<a class="brand-logo center" id="title"><%= roomName %> Settings</a>
 		</div>
 	</nav>
-<div style="background-color: #4db6ac; min-height: 100rem; border-radius: 10px;">
+<div style="background-color: #77b868; min-height: 100rem; border-radius: 10px;">
 <div class="container" >
 	<div align="center">
 	<form id='settings'>
@@ -43,7 +44,7 @@
 	</div>
 </div>
 </div>
-<footer class="page-footer">
+<footer class="page-footer" style="background-color: #83ce73">
   <div class="container">
 	<div class="row">
 	  <div class="col l6 s12">

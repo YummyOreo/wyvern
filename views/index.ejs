@@ -9,15 +9,16 @@
 	<script defer src="http://localhost:3000/socket.io/socket.io.js"></script>
 	<script defer src="index.js"></script>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+	<link rel="shortcut icon" type="image/x-icon" href="https://cdn.discordapp.com/attachments/826150434581643264/827516742280544287/Icon.png">
 </head>
 <body>
-	<nav style="border-radius: 5px;">
+	<nav style="border-radius: 5px; background-color: #83ce73;">
 		<div class='nav-wrapper'>
 			<a class="brand-logo center">Wyvern</a>
 		</div>
 	</nav>
 <div class="row">
-	<div class="col s3" style="background-color: #90a4ae; min-height: 100rem; border-radius: 10px; box-shadow: 10rem">
+	<div class="col s3" style="background-color: #659e57; min-height: 100rem; border-radius: 10px; box-shadow: 10rem">
 		<div class='contaner' align="center">
 
 			<div id="room-contaner">
@@ -30,7 +31,7 @@
 			</div>
 		</div>
 	</div>
-	<div class="col s9" style="background-color: #4db6ac; min-height: 100rem; border-radius: 10px; ">
+	<div class="col s9" style="background-color: #77b868; min-height: 100rem; border-radius: 10px; ">
 		<div class='contaner'>
 			<form action='/room' method="POST">
 				<input placeholder="Room Name" name="room" type='text'required autocomplete="off">
@@ -44,13 +45,13 @@
 							</label>
 					</div>
 				<br>
-			<button type="submit" class="waves-effect waves-light btn">New Room</button>
+			<button type="submit" class="waves-effect waves-light btn" style="background-color: #538548">New Room</button>
 	</form>
 		</div>
 	</div>
 </div>
 
-<footer class="page-footer">
+<footer class="page-footer" style="background-color: #83ce73">
   <div class="container">
 	<div class="row">
 	  <div class="col l6 s12">

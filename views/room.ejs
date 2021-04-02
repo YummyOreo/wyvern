@@ -12,19 +12,19 @@
 	<script defer src="http://localhost:3000/socket.io/socket.io.js"></script>
 	<script defer src="../script.js"></script>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+	<link rel="shortcut icon" type="image/x-icon" href="https://cdn.discordapp.com/attachments/826150434581643264/827516742280544287/Icon.png">
 </head>
 
 <body>
-	<nav style="border-radius: 10px;">
+	<nav style="border-radius: 10px; background-color: #83ce73;">
 		<div class='nav-wrapper'>
-			<a>⠀⠀⠀</a>
-			<a class="waves-effect waves-light btn" id='back'>Back To Home</a>
-			<a class="waves-effect waves-light btn" id='name'>Change Your Name</a>
+			<a class="waves-effect waves-light btn" id='back' style="background-color: #538548">Back To Home</a>
+			<a class="waves-effect waves-light btn" id='name' style="background-color: #538548">Change Your Name</a>
 			<a class="brand-logo center" id="title"><%= roomName %></a>
 		</div>
 	</nav>
 <div class="row">
-	<div class="col s2" style="background-color: #828282; min-height: 100rem; border-radius: 10px;">
+	<div class="col s2" style="background-color: #659e57; min-height: 100rem; border-radius: 10px;">
 	<div class='contaner' align="center">
 
 	<div id='user-contaner'>
@@ -32,7 +32,7 @@
 	</div>
 	</div>
 	</div>
-	<div class="col s10" style="background-color: #4db6ac; min-height: 100rem; border-radius: 10px; ">
+	<div class="col s10" style="background-color: #77b868; min-height: 100rem; border-radius: 10px; ">
 	<div class='contaner' align="center">
 	<div id='message-contaner'>
 		<p>Start Of Chat</p>
@@ -41,12 +41,12 @@
 			
 			<input placeholder="Message" type='text' rows="4" cols="50" form="send-message-form" id="message-input" style="background-color: rgba(0,0,0,0.15)" required autocomplete="off"></input>
 			<br>
-			<button type='submit' id='send-message' class="waves-effect waves-light btn">Send</button>
+			<button type='submit' id='send-message' class="waves-effect waves-light btn" style="background-color: #538548">Send</button>
 		</form>
 	</div>
 </div>
 </div>
-<footer class="page-footer">
+<footer class="page-footer" style="background-color: #83ce73">
   <div class="container">
 	<div class="row">
 	  <div class="col l6 s12">
