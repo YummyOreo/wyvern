@@ -57,7 +57,6 @@ if (messageForm != null) {
 		var d = new Date();
 		hours = d.getHours();
 		minutes = d.getMinutes();
-		appendMessage(`${name}`, `${message}`, "you", hours, minutes);
 		socket.emit('send-chat-message', roomName, message)
 		messageInput.value = '';
 	});

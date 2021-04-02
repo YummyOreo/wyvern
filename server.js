@@ -59,6 +59,8 @@ app.get('/home/rooms', (req, res) => {
 server.listen(3000)
 
 io.on('connection', socket => {
+	slowmode = 0
+
 	socket.on("check-name", (name, room) => {
 		for (id in rooms[room].users){
 			if (rooms[room].users[id] == name && id != socket.id) return socket.emit('sendback-name', false);
@@ -85,6 +87,10 @@ io.on('connection', socket => {
 		}
 	})
 	socket.on('send-chat-message', (room, message) => {
+		if (slowmode == 1){
+			socket.emit('kick-success', `You can send a message every 1 second`)
+			return;
+		}
 		name = rooms[room].users[socket.id]
 		if (name == null) name = 'Guest'
 		if (socket.id == rooms[room].owner) {
@@ -108,7 +114,10 @@ io.on('connection', socket => {
 				}
 			}
 		}
-		socket.to(room).broadcast.emit('chat-message', { message: message, name: name });
+		socket.to(room).emit('chat-message', { message: message, name: name });
+		socket.emit('chat-message', { message: message, name: name });
+		slowmode = 1
+		setTimeout(() => { slowmode = 0; }, 1000);
 	})
 	socket.on('disconnect', () => {
 		getUserRooms(socket).forEach(room => {
