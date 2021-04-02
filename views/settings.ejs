@@ -26,7 +26,7 @@
 <div style="background-color: #77b868; min-height: 100rem; border-radius: 10px;">
 <div class="container" >
 	<div align="center">
-	<form id='settings'>
+	<form id='public-switch'>
 		<div class="switch">
 				<label style="color: white;">
 				  Public
@@ -40,11 +40,20 @@
 				</label>
 			  </div>
 			  <br>
-			<button class="waves-effect waves-light btn" style="background-color: #538548" id='delete'>DELETE ROOM</button>
 			<br>
 			<br>
 			<div id='saved'></div>
 			<button type="submit" class="waves-effect waves-light btn" style="background-color: #538548">Save</button>
+	</form>
+	<br>
+	<br>
+	<button class="waves-effect waves-light btn" style="background-color: #538548" id='delete'>DELETE ROOM</button>
+	<form id='slowmode'>
+		<input type="number" id="slowmode-Value" required autocomplete="off">
+		<br>
+		<br>
+		<div id='saved'></div>
+		<button class="waves-effect waves-light btn" style="background-color: #538548" type="submit">Save</button>
 	</form>
 	</div>
 </div>
