@@ -1,5 +1,7 @@
-<img align="center" src="https://github.com/OreoDivision/wyvern/blob/main/assets/icons/logo/icon.png" style="border-radius: 25%;
+<div align="center">
+	<img align="center" src="https://github.com/OreoDivision/wyvern/blob/main/assets/icons/logo/icon.png" style="border-radius: 25%;
 " width="300" height="300">
+</div>
 
 <h1 align="center">About Wyvern</h1>
 <p align="center"><a href="https://github.com/OreoDivision/wyvern#about">About</a> ⦿ <a href="https://github.com/OreoDivision/wyvern#how-to-help">How To Help</a> ⦿ <a href="https://github.com/OreoDivision/wyvern#how-to-run-wyvern">How to run Wyvern</a> ⦿ <a href="https://github.com/OreoDivision/wyvern#how-it-works">How it works</a> <br> <a href="https://github.com/OreoDivision/wyvern#developers">Developers</a> ⦿ <a href="https://www.taskade.com/d/AjDQGcMqEVdw6EgX?share=view&view=dtP5qeBzR9kZ46ea">"Trello" List</a> ⦿ <a href="https://github.com/OreoDivision/wyvern/issues">Issues</a> ⦿ <a href="https://github.com/OreoDivision/wyvern/wiki">Wiki</a></p>
