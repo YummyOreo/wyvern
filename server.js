@@ -19,7 +19,7 @@ app.post('/room', (req, res) => {
 		return res.redirect('/')
 	}
 	console.log(req.body.private + '/room')
-	rooms[req.body.room] = { users: {}, public: req.body.private, owner: null }
+	rooms[req.body.room] = { users: {}, public: req.body.private, owner: false }
 	res.redirect(req.body.room + '/owner')
 	io.emit('room-created', req.body.room)
 })
@@ -29,7 +29,7 @@ app.get('/:room', (req, res) => {
 		return res.render('error')
 	}
 
-	res.render('room', { roomName: req.params.room })
+	res.render('room', { roomName: req.params.room, owner: false })
 })
 
 app.get('/:room/settings', (req, res) => {
@@ -45,7 +45,7 @@ app.get('/:room/owner', (req, res) => {
 		return res.render('error')
 	}
 	console.log(req.params.room)
-	res.render('owner-room', { roomName: req.params.room })
+	res.render('room', { roomName: req.params.room, owner: true })
 })
 
 server.listen(3000)

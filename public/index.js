@@ -11,6 +11,7 @@ socket.on('room-created', (room, private) => {
 	roomLink.href = `/${room}`
 	roomLink.innerText = 'join'
 	roomLink.className = "waves-effect waves-light btn"
+	roomLink.style.backgroundColor = "#538548"; 
 	roomContaner.append(roomElemet)
 	roomContaner.append(roomLink)
 })

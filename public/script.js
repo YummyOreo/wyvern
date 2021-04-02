@@ -5,9 +5,15 @@ const nameChange = document.getElementById('name');
 const userContaner = document.getElementById('user-contaner');
 const messageForm = document.getElementById('send-message-form')
 const messageInput = document.getElementById('message-input')
-const settings = document.getElementById('settings')
+settings = document.getElementById('settings')
 //start
 if (messageForm != null) {
+	
+	if (owner == true){
+		socket.emit('new-owner', roomName)
+	}
+
+
 	let name = prompt('What is your name?')
 	socket.emit('check-name', name, roomName)
 	socket.on('sendback-name', status => {
@@ -60,6 +66,12 @@ if (messageForm != null) {
 		console.log('clicked')
 		socket.emit('leave')
 	});
+
+	if (settings != null){
+		settings.addEventListener('click', function() {
+			window.location.href = `/${roomName}/settings`
+		})
+	}
 
 }
 

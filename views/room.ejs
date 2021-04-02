@@ -7,6 +7,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<script>
 		const roomName = "<%= roomName %>"
+		const owner = "<%= owner || null %>"
 	</script>
 	<title><%= roomName %> | Wyvern</title>
 	<script defer src="http://localhost:3000/socket.io/socket.io.js"></script>
@@ -17,9 +18,12 @@
 
 <body>
 	<nav style="border-radius: 10px; background-color: #83ce73;">
-		<div class='nav-wrapper'>
+		<div class='nav-wrapper' id='append-settings'>
 			<a class="waves-effect waves-light btn" id='back' style="background-color: #538548">Back To Home</a>
 			<a class="waves-effect waves-light btn" id='name' style="background-color: #538548">Change Your Name</a>
+			<% if(owner == true){ %>
+			<a class="waves-effect waves-light btn" id='settings' style="background-color: #538548">Settings</a>
+			<% } %>
 			<a class="brand-logo center" id="title"><%= roomName %></a>
 		</div>
 	</nav>
