@@ -23,7 +23,7 @@ app.post('/room', (req, res) => {
 		return res.redirect('/')
 	}
 	console.log(req.body.private + '/room')
-	rooms[req.body.room] = { users: {}, public: req.body.private, owner: false }
+	rooms[req.body.room] = { users: {}, public: req.body.private, owner: false, slowmode: 1 }
 	res.redirect(req.body.room + '/owner')
 	io.emit('room-created', req.body.room)
 })
@@ -61,6 +61,11 @@ server.listen(3000)
 io.on('connection', socket => {
 	slowmode = 0
 
+	socket.on('slowmode-change', (room, slowmodeValue) => {
+		rooms[room].slowmode = slowmodeValue;
+		socket.to(room).emit('changed-slowmode', slowmodeValue)
+	})
+
 	socket.on('delete-room', room => {
 		for(id in rooms[room].users){
 			socket.to(id).emit('redirect', '/')
@@ -88,14 +93,15 @@ io.on('connection', socket => {
 		rooms[room].users[socket.id] = name;
 		console.log(rooms[room].users)
 		socket.to(room).broadcast.emit('user-joined', name)
+		socket.emit('changed-slowmode', rooms[room].slowmode)
 		for (user in rooms[room].users){
 			socket.to(room).emit("user-list", rooms[room].users[user])
 			socket.emit("user-list", rooms[room].users[user])
 		}
 	})
 	socket.on('send-chat-message', (room, message) => {
-		if (slowmode == 1 && socket.id != rooms[room].owner){
-			socket.emit('kick-success', `You can send a message every 1 second`)
+		if (slowmode == rooms[room].slowmode && socket.id != rooms[room].owner){
+			socket.emit('kick-success', `You can send a message every ${rooms[room].slowmode} second`)
 			return;
 		}
 		name = rooms[room].users[socket.id]
@@ -123,8 +129,8 @@ io.on('connection', socket => {
 		}
 		socket.to(room).emit('chat-message', { message: message, name: name });
 		socket.emit('chat-message', { message: message, name: name });
-		slowmode = 1
-		setTimeout(() => { slowmode = 0; }, 1000);
+		slowmode = rooms[room].slowmode
+		setTimeout(() => { slowmode = 0; }, rooms[room].slowmode * 1000);
 	})
 	socket.on('disconnect', () => {
 		getUserRooms(socket).forEach(room => {

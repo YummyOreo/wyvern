@@ -25,7 +25,7 @@ This is where you can talk about code questions, the app, or anything. You can g
 	* This will have your room not be on a public list, to join a private room, you need a direct link to the room.
 - [x] Time when the message was sent and by who
 	* This shows what time it was sent at, and by who!
-- [ ] Room Deletion
+- [x] Room Deletion
 	* This will add a delete button for owners.
 - [ ] And MORE!
 

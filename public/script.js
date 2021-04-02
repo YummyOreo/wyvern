@@ -74,6 +74,10 @@ if (messageForm != null) {
 
 }
 
+socket.on('changed-slowmode', (newValue) => {
+	document.getElementById('slowmode-show').innerText = `Slowmode: ${newValue}`;
+})
+
 socket.on('user-changed-name', () => {
 	userContaner.innerText = ''
 	var headerList = document.createElement("p");
