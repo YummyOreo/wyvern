@@ -5,10 +5,9 @@
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Wyvern</title>
-	<script defer src="http://localhost:3000/socket.io/socket.io.js"></script>
-	<script defer src="../index.js"></script>
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+	<title>Wyvern | Rooms</title>
+	<script defer src="../rooms.js"></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">	
 	<link rel="shortcut icon" type="image/x-icon" href="https://cdn.discordapp.com/attachments/826150434581643264/827516742280544287/Icon.png">
 </head>
 <body>
@@ -16,32 +15,24 @@
 		<div class='nav-wrapper'>
 			<a>⠀⠀</a>
 
-			<a class="btn disabled" id='home' style="background-color: #538548">Home</a>
-			<a class="waves-effect waves-light btn" id='rooms' style="background-color: #538548">Rooms</a>
+			<a class="waves-effect waves-light btn" id='home' style="background-color: #538548">Home</a>
+			<a class="btn disabled" id='rooms' style="background-color: #538548">Rooms</a>
 			<a class="brand-logo center">Wyvern</a>
 		</div>
 	</nav>
-<div class="row">
-	<div style="background-color: #77b868; min-height: 100rem; border-radius: 10px;">
-	<div class="col s12">
-		<div class='contaner'>
-			<form action='/room' method="POST">
-				<input placeholder="Room Name" name="room" type='text'required autocomplete="off">
-					<div class="switch">
-						<label style="color: white;">
-							Public
-							<input type="checkbox" name='private'>
-							<span class="lever"></span>
-							Private
-							</label>
-					</div>
-				<br>
-			<button type="submit" class="waves-effect waves-light btn" style="background-color: #538548">New Room</button>
-	</form>
+	<div class='contaner' align="center">
+	<div style="background-color: #77b868; min-height: 100rem; border-radius: 10px; ">
+
+			<div id="room-contaner">
+				<p>Rooms</p>
+				<% Object.keys(rooms).forEach(room => { console.log(rooms); if (rooms[room].public == "on") {return;} %>
+				<div><%= room; %></div>
+				<a href="/<%= room %>" class="waves-effect waves-light btn" style="background-color: #538548">Join</a>
+				<% }) %>
+
+			</div>
 		</div>
 	</div>
-</div>
-</div>
 
 <footer class="page-footer" style="background-color: #83ce73">
   <div class="container">

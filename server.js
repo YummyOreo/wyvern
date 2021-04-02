@@ -4,13 +4,17 @@ const server = require('http').Server(app);
 const io = require('socket.io')(server);
 
 app.set('views', './views')
-app.set('view engine', 'ejs', 'html')
+app.set('view engine', 'ejs')
 app.use(express.static('public'))
 app.use(express.urlencoded({ exteneded: true }))
 
 const rooms = {}
 
 app.get('/', (req, res) => {
+	res.render('index', { rooms: rooms })
+})
+
+app.get('/home', (req, res) => {
 	res.render('index', { rooms: rooms })
 })
 
@@ -46,6 +50,10 @@ app.get('/:room/owner', (req, res) => {
 	}
 	console.log(req.params.room)
 	res.render('room', { roomName: req.params.room, owner: true })
+})
+
+app.get('/home/rooms', (req, res) => {
+	res.render('rooms', {rooms : rooms})
 })
 
 server.listen(3000)
