@@ -47,7 +47,7 @@ This is where you can talk about code questions, the app, or anything. You can g
 	* If you do want to make UI/Graphic Designe Changes DM me on Discord. My tag is OreoDivision#0001. And we can talk about what you think should change about the UI/Graphic Designe Changes.
 	* You will also be added to [Foreked Devs](https://github.com/OreoDivision/wyvern#foreked-devs) list if it is accepted! 
 * Making bug reports
-	* If you see a bug, report it to [here](https://github.com/OreoDivision/wyvern/issues), or [fork it](https://github.com/OreoDivision/wyvern/issues)!
+	* If you see a bug, report it to [here](https://github.com/OreoDivision/wyvern/issues), or [fork it](https://github.com/OreoDivision/wyvern#how-to-help)!
 
 ## How to run wyvern:
 > **Disclaimer:** Not everything works, __feel free__ **to fork** this and work on it, *tell me if you do, and I might add your fixes/additions to the repo!* for more info go [here](https://github.com/OreoDivision/wyvern#how-to-help). You can also report bugs/issues [here](https://github.com/OreoDivision/wyvern/issues).
