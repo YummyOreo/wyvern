@@ -1,3 +1,4 @@
+//gets all needed global vars setup
 const socket = io('http://localhost:3000')
 const messageContaner = document.getElementById('message-contaner');
 const back = document.getElementById('back');
@@ -7,8 +8,10 @@ const messageForm = document.getElementById('send-message-form')
 const messageInput = document.getElementById('message-input')
 settings = document.getElementById('settings')
 //start
+//not needed if statment
 if (messageForm != null) {
 	
+	//if they are the owner
 	if (settings != null){
 		console.log('owner')
 		socket.emit('new-owner', roomName)
@@ -19,7 +22,7 @@ if (messageForm != null) {
 		})
 	}
 
-
+	//gets there name
 	let name = prompt('What is your name?')
 	socket.emit('check-name', name, roomName)
 	socket.on('sendback-name', status => {
@@ -36,6 +39,7 @@ if (messageForm != null) {
 
 	})
 
+	//when they want to change there name
 	nameChange.addEventListener('click', function() {
 		let nameNew = prompt('What is your new name?')
 		if (nameNew == '' || nameNew == null) return;
@@ -51,6 +55,7 @@ if (messageForm != null) {
 	})
 	})
 
+	//When they send a message
 	messageForm.addEventListener('submit', e => {
 		console.log(name)
 		e.preventDefault()
@@ -62,11 +67,13 @@ if (messageForm != null) {
 		messageInput.value = '';
 	});
 
+	//when the clikc to go back to home
 	back.addEventListener('click', e => {
 		console.log('clicked')
 		socket.emit('leave')
 	});
 
+	//settings
 	if (settings != null){
 		settings.addEventListener('click', function() {
 			window.location.href = `/${roomName}/settings`
@@ -74,6 +81,10 @@ if (messageForm != null) {
 	}
 
 }
+/* 
+this will not be covered due to the complexity of it.
+it will be covered later
+*/
 
 socket.on('changed-slowmode', (newValue) => {
 	document.getElementById('slowmode-show').innerText = `Slowmode: ${newValue}`;

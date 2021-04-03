@@ -1,10 +1,11 @@
+//adds the func to get a users rooms
 function getUserRooms(soket, rooms) {
 	return Object.entries(rooms).reduce((names, [name, room]) => {
 		if (room.users[soket.id] != null) names.push(name)
 			return names;
 	}, [])
 }
-
+//func for when there is a new owner
 exports.newOwnerExport = (rooms, room, socket) => {
 	sendBack = false;
 	if (rooms[room].owner == null){
@@ -13,7 +14,7 @@ exports.newOwnerExport = (rooms, room, socket) => {
 	}
 	socket.emit('owner-sendback', sendBack);
 }
-
+//func for when there is a new user in a room
 exports.newUserExport = (socket, rooms, room, name) => {
 	if (name == null) name = 'Guest';
 	if (name == rooms[room].users[socket.id]) return;
@@ -27,7 +28,7 @@ exports.newUserExport = (socket, rooms, room, name) => {
 		socket.emit("user-list", rooms[room].users[user])
 	}
 }
-
+//func for when there is a Disconnect
 exports.userDisconnectExport = (socket, rooms) => {
 	getUserRooms(socket, rooms).forEach(room => {
 		name = rooms[room].users[socket.id]
@@ -37,7 +38,7 @@ exports.userDisconnectExport = (socket, rooms) => {
 		delete rooms[room].users[socket.id]
 	})
 }
-
+//func for when there is a leave different to a disconnect 
 exports.userLeaveExport = (socket, rooms) => {
 	getUserRooms(socket, rooms).forEach(room => {
 		name = rooms[room].users[socket.id]
@@ -49,7 +50,7 @@ exports.userLeaveExport = (socket, rooms) => {
 
 	})
 }
-
+//func for when there is a name change
 exports.userNameChangeExport = (rooms, name, socket, room) => {
 	rooms[room].users[socket.id] = name;
 	socket.to(room).emit("user-changed-name")
