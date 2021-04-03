@@ -4,7 +4,7 @@ exports.messgaeSendExport = (slowmode, rooms, socket, message, room) => {
 		if (socket.id == rooms[room].owner){
 
 		}else {
-			socket.emit('kick-success', `You can send a message every ${rooms[room].slowmode} second`)
+			socket.emit('system', `You can send a message every ${rooms[room].slowmode} second`)
 			return;
 		}
 	}
@@ -29,8 +29,10 @@ exports.messgaeSendExport = (slowmode, rooms, socket, message, room) => {
 						return;
 					}
 				}
-				socket.emit('kick-success', `${kickName} is not in this room.`)
+				socket.emit('system', `${kickName} is not in this room.`)
 				return;
+			} else if (command === 'help'){
+				socket.emit('system', `Commands \n !kick <user_name> (kicks the user) \n !help (Shows this message) `)
 			}
 		}
 	}

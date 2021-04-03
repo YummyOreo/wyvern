@@ -106,7 +106,7 @@ socket.on(`kicked`, () => {
 	socket.emit('leave')
 })
 
-socket.on('kick-success', message => {
+socket.on('system', message => {
 	var d = new Date();
 	hours = d.getHours();
 	minutes = d.getMinutes();
