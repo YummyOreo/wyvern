@@ -36,7 +36,7 @@ if (messageForm != null) {
 
 	})
 
-	function nameChanegFunc(){
+	nameChange.addEventListener('click', function() {
 		let nameNew = prompt('What is your new name?')
 		if (nameNew == '' || nameNew == null) return;
 		socket.emit('check-name', nameNew, roomName)
@@ -46,14 +46,9 @@ if (messageForm != null) {
 				if (nameNew == '' || nameNew == null) return;
 				socket.emit('check-name', nameNew, roomName)
 		}
-		if (nameNew == '' || nameNew == null) return;
 		name = nameNew;
 		socket.emit('name-chage', roomName, nameNew)
 	})
-	}
-
-	nameChange.addEventListener('click', function() {
-		nameChanegFunc()
 	})
 
 	messageForm.addEventListener('submit', e => {
@@ -106,12 +101,6 @@ socket.on('kick-success', message => {
 	minutes = d.getMinutes();
 	appendMessage(`System`, `${message}`, "system", hours, minutes);
 })
-
-socket.on('userList', data => {
-	for(id in data) {
-		console.log(id)
-	}
-});
 
 socket.on('chat-message', data => {
 	var d = new Date();

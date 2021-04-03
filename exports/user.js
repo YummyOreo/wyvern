@@ -16,14 +16,15 @@ exports.newOwnerExport = (rooms, room, socket) => {
 
 exports.newUserExport = (socket, rooms, room, name) => {
 	if (name == null) name = 'Guest';
-		socket.join(room)
-		rooms[room].users[socket.id] = name;
-		console.log(rooms[room].users)
-		socket.to(room).broadcast.emit('user-joined', name)
-		socket.emit('changed-slowmode', rooms[room].slowmode)
-		for (user in rooms[room].users){
-			socket.to(room).emit("user-list", rooms[room].users[user])
-			socket.emit("user-list", rooms[room].users[user])
+	if (name == rooms[room].users[socket.id]) return;
+	socket.join(room)
+	rooms[room].users[socket.id] = name;
+	console.log(rooms[room].users)
+	socket.to(room).broadcast.emit('user-joined', name)
+	socket.emit('changed-slowmode', rooms[room].slowmode)
+	for (user in rooms[room].users){
+		socket.to(room).emit("user-list", rooms[room].users[user])
+		socket.emit("user-list", rooms[room].users[user])
 	}
 }
 

@@ -5,6 +5,7 @@ const io = require('socket.io')(server);
 
 const { slowmodeExport, deleteExport } = require('./exports/settings.js')
 const { messgaeSendExport } = require('./exports/message.js')
+const { checkNameExport } = require('./exports/checks.js')
 const { newOwnerExport, newUserExport, userDisconnectExport, userLeaveExport, userNameChangeExport } = require('./exports/user.js')
 
 app.set('views', './views')
@@ -74,10 +75,7 @@ io.on('connection', socket => {
 	})
 
 	socket.on("check-name", (name, room) => {
-		for (id in rooms[room].users){
-			if (rooms[room].users[id] == name && id != socket.id) return socket.emit('sendback-name', false);
-		} 
-		socket.emit('sendback-name', true)
+		checkNameExport(name, room, rooms, socket)
 	})
 
 	socket.on('new-owner', room => {
@@ -102,10 +100,3 @@ io.on('connection', socket => {
 		rooms[room].public = value;
 	})
 })
-
-function getUserRooms(soket) {
-	return Object.entries(rooms).reduce((names, [name, room]) => {
-		if (room.users[soket.id] != null) names.push(name)
-			return names;
-	}, [])
-}
