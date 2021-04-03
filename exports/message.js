@@ -34,6 +34,8 @@ exports.messgaeSendExport = (slowmode, rooms, socket, message, room) => {
 			} else if (command === 'help'){
 				socket.emit('system', `Commands \n !kick <user_name> (kicks the user) \n !help (Shows this message) `)
 			}
+		} else {
+			socket.emit('system', `You do not have accese to commands`)
 		}
 	}
 	//sends the message
