@@ -26,7 +26,7 @@
 			<div id="room-contaner">
 				<p>Rooms</p>
 				<% Object.keys(rooms).forEach(room => { console.log(rooms); if (rooms[room].public == "on") {return;} %>
-				<div><%= room; %></div>
+				<div><%= rooms[room].name; %></div>
 				<a href="/<%= room %>" class="waves-effect waves-light btn" style="background-color: #538548">Join</a>
 				<% }) %>
 

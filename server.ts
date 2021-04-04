@@ -15,6 +15,17 @@ app.use(express.urlencoded({ exteneded: true }))
 
 const rooms = {}
 
+function regenorate(): any {
+	let min = Math.ceil(1);
+  	let max = Math.floor(100000);
+	let idReturn = Math.floor(Math.random() * (max - min) + min);
+	let roomID
+	if(rooms[roomID] != null){
+		idReturn = regenorate()
+	}
+	return idReturn;
+}
+
 app.get('/', (req, res) => {
 	res.render('index', { rooms: rooms })
 })
@@ -24,13 +35,11 @@ app.get('/home', (req, res) => {
 })
 
 app.post('/room', (req, res) => {
-	if (rooms[req.body.room] != null){
-		return res.redirect('/')
-	}
 	console.log(req.body.private + '/room')
-	rooms[req.body.room] = { users: {}, public: req.body.private, owner: null, slowmode: 1, dm: [] }
-	res.redirect(req.body.room + '/owner')
-	io.emit('room-created', req.body.room)
+	let id = regenorate()
+	rooms[id] = { users: {}, public: req.body.private, owner: null, slowmode: 1, dm: [], muted: [], name: req.body.room}
+	res.redirect(id + '/owner')
+	io.emit('room-created', req.body.room, id)
 })
 
 app.get('/:room', (req, res) => {
@@ -38,7 +47,7 @@ app.get('/:room', (req, res) => {
 		return res.redirect('/')
 	}
 
-	res.render('room', { roomName: req.params.room, owner: false })
+	res.render('room', { id: req.params.room, owner: false, roomName: rooms[req.params.room].name })
 })
 
 app.get('/:room/settings', (req, res) => {
@@ -46,7 +55,7 @@ app.get('/:room/settings', (req, res) => {
 		return res.redirect('/')
 	}
 	console.log(req.params.room)
-	res.render('settings', { roomName: req.params.room, rooms: rooms })
+	res.render('settings', { roomName: rooms[req.params.room].name, rooms: rooms, id: req.params.room })
 })
 
 app.get('/:room/owner', (req, res) => {
@@ -54,7 +63,7 @@ app.get('/:room/owner', (req, res) => {
 		return res.redirect('/')
 	}
 	console.log(req.params.room)
-	res.render('room', { roomName: req.params.room, owner: true })
+	res.render('room', { id: req.params.room, owner: true, roomName: rooms[req.params.room].name })
 })
 
 app.get('/home/rooms', (req, res) => {

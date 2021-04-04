@@ -9,7 +9,7 @@ const slowmode = document.getElementById('slowmode')!;
 
 // when the user wants to go back to the room
 back.addEventListener('click', () => {
-	window.location.href = `/${roomName}/owner`;
+	window.location.href = `/${id}/owner`;
 });
 
 // when the user wants to delete the room
@@ -19,7 +19,7 @@ deleteRoom.addEventListener('click', () => {
 		window.alert("Incorrect")
 		return;
 	}
-	socket.emit('delete-room', roomName)
+	socket.emit('delete-room', id)
 	window.location.href = '/';
 })
 
@@ -27,7 +27,7 @@ deleteRoom.addEventListener('click', () => {
 slowmode.addEventListener('submit', e => {
 	e.preventDefault()
 	let inputValue  = (document.getElementById('slowmode-Value') as HTMLInputElement).value
-	socket.emit('slowmode-change', roomName, inputValue)
+	socket.emit('slowmode-change', id, inputValue)
 	savedSlowmode.innerText = "Saved"
 })
 
@@ -35,6 +35,6 @@ slowmode.addEventListener('submit', e => {
 publicSwitch.addEventListener('submit', e => {
 	e.preventDefault()
 	let inputValue  = (document.getElementById('private') as HTMLInputElement).value
-	socket.emit('privacy-change', roomName, inputValue )
+	socket.emit('privacy-change', id, inputValue )
 	savedPublic.innerText = "Saved"
 })

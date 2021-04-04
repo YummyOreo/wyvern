@@ -8,6 +8,7 @@
 	<title>Wyvern</title>
 	<script>
 		const roomName = "<%= roomName %>"
+		const id = "<%= id %>"
 	</script>
 	<script defer src="http://localhost:3000/socket.io/socket.io.js"></script>
 	<script defer src="../settings.js"></script>
@@ -30,7 +31,7 @@
 		<div class="switch">
 				<label style="color: white;">
 				  Public
-				  <% if(rooms[roomName].public == 'on'){ %>
+				  <% if(rooms[id].public == 'on'){ %>
 				  <input type="checkbox" id='private'checked>
 				  <% } else { %>
 				  <input type="checkbox" id='private'>

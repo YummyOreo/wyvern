@@ -15,27 +15,27 @@ if (messageForm != null) {
 	
 	//if they are the owner
 	console.log('owner')
-	socket.emit('new-owner', roomName)
+	socket.emit('new-owner', id)
 	socket.on("owner-sendback", results => {
 		if (results == false && owner == true){
-			window.location.href = `/${roomName}`
+			window.location.href = `/${id}`
 		}
 	})
 
 	//gets there name
 	name = prompt('What is your name?')
-	socket.emit('check-name', name, roomName)
+	socket.emit('check-name', name, id)
 	socket.on('sendback-name', status => {
 		if (status == false) {
 			name = prompt('Name Taken, Whats your new name?')
-			socket.emit('check-name', name, roomName)
+			socket.emit('check-name', name, id)
 			return
 		}
 		var d = new Date();
 		let hours = d.getHours();
 		let minutes = d.getMinutes();
 		appendMessage(name, ' Joined', "join", hours, minutes)
-		socket.emit('new-user', roomName, name);
+		socket.emit('new-user', id, name);
 
 	})
 
@@ -43,15 +43,15 @@ if (messageForm != null) {
 	nameChange.addEventListener('click', function() {
 		let nameNew = prompt('What is your new name?')
 		if (nameNew == '' || nameNew == null) return;
-		socket.emit('check-name', nameNew, roomName)
+		socket.emit('check-name', nameNew, id)
 		socket.on('sendback-name', status => {
 			if (status == false) {
 				nameNew = prompt('Name Taken, What is your new name?')
 				if (nameNew == '' || nameNew == null) return;
-				socket.emit('check-name', nameNew, roomName)
+				socket.emit('check-name', nameNew, id)
 		}
 		name = nameNew;
-		socket.emit('name-chage', roomName, nameNew)
+		socket.emit('name-chage', id, nameNew)
 	})
 	})
 
@@ -63,7 +63,7 @@ if (messageForm != null) {
 		var d = new Date();
 		let hours = d.getHours();
 		let minutes = d.getMinutes();
-		socket.emit('send-chat-message', roomName, message)
+		socket.emit('send-chat-message', id, message)
 		messageInput.value = '';
 	});
 
@@ -76,7 +76,7 @@ if (messageForm != null) {
 	//settings
 	if (settings != null){
 		settings.addEventListener('click', function() {
-			window.location.href = `/${roomName}/settings`
+			window.location.href = `/${id}/settings`
 		})
 	}
 
