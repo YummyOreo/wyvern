@@ -37,7 +37,7 @@ exports.messgaeSendExport = (slowmode, rooms, socket, message, room) => {
 			socket.emit('system', `${kickName} is not in this room.`)
 			return;
 		} else if (command === 'help'){
-			socket.emit('system', `Commands \n !kick <user_name> (kicks the user) \n !help (Shows this message) \n !dm <user> (message) (dms a user)`)
+			socket.emit('system', `Commands \n !kick <user_name> (kicks the user) \n !help (Shows this message) \n !dm <user> (message) (dms a user) \n !dm-toggle (toggle your dms)`)
 			return;
 		} else if (command === 'dm'){
 			let dmName = args.slice(0).join(" ");
@@ -51,12 +51,28 @@ exports.messgaeSendExport = (slowmode, rooms, socket, message, room) => {
 			console.log(dmName)
 			for (user in rooms[room].users) {
 				if (rooms[room].users[user] == dmName) {
+					if (rooms[room].dm.includes(user)){
+						socket.emit('system', `${dmName} has their dms turned off.`)
+						return;
+					}
 					socket.to(user).emit('dm', {user: rooms[room].users[socket.id], message: messageDM})
 					socket.emit('dm', {user: rooms[room].users[socket.id], message: messageDM})
 					return;
 				}
 			}
 			socket.emit('system', `${dmName} is not in this room.`)
+			return;
+		} else if (command == 'dm-toggle'){
+			if (rooms[room].dm.includes(socket.id)){
+				var index = rooms[room].dm.indexOf(socket.id);
+				if (index > -1) {
+					rooms[room].dm.splice(index, 1);
+				}
+				socket.emit('system', `Successfully enabled Dms`)
+			}else {
+				rooms[room].dm.push(socket.id);
+				socket.emit('system', `Successfully disabled Dms`)
+			}
 			return;
 		}
 	}

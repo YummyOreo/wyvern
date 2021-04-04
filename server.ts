@@ -28,7 +28,7 @@ app.post('/room', (req, res) => {
 		return res.redirect('/')
 	}
 	console.log(req.body.private + '/room')
-	rooms[req.body.room] = { users: {}, public: req.body.private, owner: null, slowmode: 1 }
+	rooms[req.body.room] = { users: {}, public: req.body.private, owner: null, slowmode: 1, dm: [] }
 	res.redirect(req.body.room + '/owner')
 	io.emit('room-created', req.body.room)
 })
