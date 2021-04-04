@@ -65,33 +65,27 @@ To install Node.js go to there [website](https://nodejs.org/en/).
 $ git clone https://github.com/OreoDivision/wyvern
 $ cd wyvern
 ```
-### Way one:
-> Console
 
-### Install dependencies:
-```cosnole
-$ npm i
+## Install Everything
+```console
+npm i
+tsc
 ```
+> This installes all dependencies, converts `ts` files to `js` files. ***Its fine to get errors, they are FINE.***
 
-### Run Website:
+### Run the website
 ```console
 $ npm run devStart
 ```
-> This starts the `server.js` file.
+> Starts the `server.js` file.
 
 ### Local Host Website
 The local Host website that this runs on is [http://localhost:3000](http://localhost:3000).
 
-### Way 2
-> EXE
-### Run the exe:
-Click the run.exe twice and it should run the server!
-> See `./PY for .exe/run.py` for the code for this, and read the `README.txt`!
-
 ## How it works:
 > **Disclaimer:** Does *not* explain __everything!__ Look in the code to **get exactly how it works.**
 ### What modules does it uses
-This uses [`soket.io`](https://socket.io/), [`ejs`](https://ejs.co/), and [`express`](https://expressjs.com/). (excluding [`HTTPS`](https://nodejs.org/api/https.html)).
+This uses [`soket.io`](https://socket.io/), [`ejs`](https://ejs.co/), [`ts`](https://www.typescriptlang.org/), and [`express`](https://expressjs.com/). (excluding [`HTTPS`](https://nodejs.org/api/https.html)).
 ### How does it send messages?
 We use [`soket.io`](https://socket.io/), so to send messages we use `soket.to(room).brodcast.emit()`. This sends a "emit" to everyone in the room, other than the user sending the messag.e 
 ### What is a .ejs files?

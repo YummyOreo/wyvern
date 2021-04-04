@@ -1,1 +1,0 @@
-To install the modual for compiling the Run.py file, do pip install -r requirements.txt, then to compile do pyinstaller --onefile run.py
