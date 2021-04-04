@@ -7,7 +7,7 @@ const userContaner = document.getElementById('user-contaner')!;
 const messageForm = document.getElementById('send-message-form')!;
 const messageInput = document.getElementById('message-input')! as HTMLInputElement;
 let settings = document.getElementById('settings');
-
+let name;
 
 //start
 //not needed if statment
@@ -23,7 +23,7 @@ if (messageForm != null) {
 	})
 
 	//gets there name
-	let name = prompt('What is your name?')
+	name = prompt('What is your name?')
 	socket.emit('check-name', name, roomName)
 	socket.on('sendback-name', status => {
 		if (status == false) {
@@ -113,18 +113,22 @@ socket.on('system', message => {
 	appendMessage(`System`, `${message}`, "system", hours, minutes);
 })
 
-socket.on('dm', data => {
+socket.on('dm', ({user, message}) => {
 	var d = new Date();
 	let hours = d.getHours();
 	let minutes = d.getMinutes();
-	appendMessage(`${data.user}`, `${data.message}`, "dm", hours, minutes);
+	appendMessage(`${user}`, `${message}`, "dm", hours, minutes);
 })
 
-socket.on('chat-message', data => {
+socket.on('chat-message', ({name, message}) => {
+	let type = 'filler'
 	var d = new Date();
 	let hours = d.getHours();
 	let minutes = d.getMinutes();
-	appendMessage(data.name, `${data.message}`, "message", hours, minutes);
+	if (message.content.includes(`@${name}`){
+		type = 'mention';
+	}
+	appendMessage(name, `${message}`, type, hours, minutes);
 });
 
 socket.on('user-joined', UserName => {
@@ -176,6 +180,9 @@ function appendMessage(name, message, type, hours, minute) {
 	} else if (type == 'dm'){
 		messageElement.className = 'red'
 		messageName.className = 'red'
+	} else if (type == 'mention'){
+		messageElement.className = 'yellow lighten-1'
+		messageName.className = 'yellow lighten-1'
 	}
 	messageContaner.append(messageName)
 	messageContaner.append(messageElement)
