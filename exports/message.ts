@@ -29,15 +29,12 @@ exports.messgaeSendExport = (slowmode, rooms, socket, message, room) => {
 			console.log(kickName)
 			for (user in rooms[room].users) {
 				if (rooms[room].users[user] == kickName) {
-					socket.to(user).emit('kicked', name)
+					socket.to(user).emit('kicked')
 					socket.emit('system', `${kickName} has been kicked!`)
 					return;
 				}
 			}
 			socket.emit('system', `${kickName} is not in this room.`)
-			return;
-		} else if (command === 'help'){
-			socket.emit('system', `Commands \n !kick <user_name> (kicks the user) \n !help (Shows this message) \n !dm <user> (message) (dms a user) \n !dm-toggle (toggle your dms)`)
 			return;
 		} else if (command === 'dm'){
 			let dmName = args.slice(0).join(" ");
@@ -74,12 +71,68 @@ exports.messgaeSendExport = (slowmode, rooms, socket, message, room) => {
 				socket.emit('system', `Successfully disabled Dms`)
 			}
 			return;
-		}
+		} else if (command === 'mute'){
+			if (socket.id != rooms[room].owner) {
+				socket.emit('system', `You do not have accese to commands`);
+				return;
+			}
+			let muteName = args.slice(0).join(" ");
+			console.log(muteName)
+			for (user in rooms[room].users) {
+				if (rooms[room].users[user] == muteName) {
+					socket.to(user).emit('mute', name, true)
+					socket.emit('system', `${muteName} has been muted!`)
+					return;
+				}
+			}
+			socket.emit('system', `${muteName} is not in this room.`)
+			return;
+		} else if (command === 'unmute'){
+			if (socket.id != rooms[room].owner) {
+				socket.emit('system', `You do not have accese to commands`);
+				return;
+			}
+			let muteName = args.slice(0).join(" ");
+			console.log(muteName)
+			for (user in rooms[room].users) {
+				if (rooms[room].users[user] == muteName) {
+					socket.to(user).emit('mute', name, false)
+					socket.emit('system', `${muteName} has been unmuted!`)
+					return;
+				}
+			}
+			socket.emit('system', `${muteName} is not in this room.`)
+			return;
+		} else if (command === 'help'){
+			socket.emit('system', `Commands \n !kick <user_name> (kicks the user) \n !mute/unmute <user> (mutes and unmutes a user) \n !help (Shows this message) \n !dm <user> (message) (dms a user) \n !dm-toggle (toggle your dms)`)
+			return;
+		} 
 	}
 	//sends the message
 	socket.to(room).emit('chat-message', { message: message, name: name });
 	socket.emit('chat-message', { message: message, name: name });
 	//sets the slowmode
-	slowmode = rooms[room].slowmode
-	setTimeout(() => { slowmode = 0; }, rooms[room].slowmode * 1000);
+	return slowmode
 }
+/* 
+
+Template for owner only commands:
+else if (command === 'COMMAND NAME'){
+	if (socket.id != rooms[room].owner) {
+		socket.emit('system', `You do not have accese to commands`);
+		return;
+	}
+	let COMMANDNAME + Name = args.slice(0).join(" ");
+	console.log(COMMANDNAME + Name)
+	for (user in rooms[room].users) {
+		if (rooms[room].users[user] == COMMANDNAME + Name) {
+			socket.to(user).emit('EMIT MESSAGE')
+			socket.emit('system', `${COMMANDNAME + Name} has been muted!`)
+			return;
+		}
+	}
+	socket.emit('system', `${COMMANDNAME + Name} is not in this room.`)
+	return;
+}
+
+*/

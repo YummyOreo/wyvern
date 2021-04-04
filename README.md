@@ -47,7 +47,7 @@ This is where you can talk about code questions, the app, or anything. You can g
 ## How To Help
 ### You can help by:
 * Forking the repo
-	* If you fork the repo and add/fix code, feel free to DM me on Discord, my tag is OreoDivision#0001.
+	* If you fork the repo and add/fix code, feel free to DM me on Discord and make a pull request!, my tag is OreoDivision#0001.
 	* You will also be added to [Foreked Devs](https://github.com/OreoDivision/wyvern#foreked-devs) list if it is accepted! 
 
 * Make Changes to the UI/Graphic Designe Changes

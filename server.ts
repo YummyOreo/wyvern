@@ -95,7 +95,9 @@ io.on('connection', socket => {
 		newUserExport(socket, rooms, room, name)
 	})
 	socket.on('send-chat-message', (room, message) => {
-		messgaeSendExport(slowmode, rooms, socket, message, room)
+		slowmode = messgaeSendExport(slowmode, rooms, socket, message, room)
+		slowmode = rooms[room].slowmode
+		setTimeout(() => { slowmode = 0; }, rooms[room].slowmode * 1000);
 	})
 	socket.on('disconnect', () => {
 		userDisconnectExport(socket, rooms)

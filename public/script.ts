@@ -6,6 +6,7 @@ const nameChange = document.getElementById('name')!;
 const userContaner = document.getElementById('user-contaner')!;
 const messageForm = document.getElementById('send-message-form')!;
 const messageInput = document.getElementById('message-input')! as HTMLInputElement;
+const sendButton = document.getElementById('send-message')! as HTMLButtonElement;
 let settings = document.getElementById('settings');
 let name;
 
@@ -104,6 +105,26 @@ socket.on('redirect', function(destination) {
 
 socket.on(`kicked`, () => {
 	socket.emit('leave')
+})
+
+socket.on(`mute`, (ownerName, status) => {
+	if (status == true){
+		var d = new Date();
+		let hours = d.getHours();
+		let minutes = d.getMinutes();
+		messageInput.disabled = true;
+		messageInput.placeholder = 'Muted';
+		sendButton.disabled = true;
+		appendMessage(`System`, `${ownerName} has muted you!`, "system", hours, minutes);
+	} else {
+		var d = new Date();
+		let hours = d.getHours();
+		let minutes = d.getMinutes();
+		messageInput.disabled = false;
+		messageInput.placeholder = 'Message';
+		sendButton.disabled = false;
+		appendMessage(`System`, `${ownerName} has unmuted you!`, "system", hours, minutes);
+	}
 })
 
 socket.on('system', message => {
