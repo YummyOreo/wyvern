@@ -19,6 +19,7 @@
     "express": "^4.17.1"
   },
   "devDependencies": {
+    "@types/node": "^14.14.37",
     "nodemon": "^1.19.0"
   },
   "engines": {

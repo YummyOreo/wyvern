@@ -64,7 +64,7 @@ app.get('/home/rooms', (req, res) => {
 server.listen(3000)
 
 io.on('connection', socket => {
-	slowmode = 0
+	let slowmode = 0
 
 	socket.on('slowmode-change', (room, slowmodeValue) => {
 		slowmodeExport(rooms, room, slowmodeValue, socket)
