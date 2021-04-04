@@ -66,13 +66,13 @@ $ git clone https://github.com/OreoDivision/wyvern
 $ cd wyvern
 ```
 
-### Way One
+### Way One:
 > EXE
 
-### Run the exe
+### Run the exe:
 You can run run.exe to have it run the commands and open the website for you! See [`./py`](https://github.com/OreoDivision/wyvern/tree/main/py) for more info!
 
-### Way two (recommended)
+### Way two (recommended):
 > Command prompt
 
 ### Install Everything
