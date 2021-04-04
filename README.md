@@ -66,7 +66,11 @@ $ git clone https://github.com/OreoDivision/wyvern
 $ cd wyvern
 ```
 
-## Install Everything
+### Way One
+> EXE
+You can run run.exe to have it run the commands and open the website for you! See [`./py`](https://github.com/OreoDivision/wyvern/tree/main/py) for more info!
+
+### Install Everything
 ```console
 $ npm i
 $ tsc
