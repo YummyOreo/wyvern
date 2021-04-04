@@ -125,7 +125,7 @@ socket.on('chat-message', ({name, message}) => {
 	var d = new Date();
 	let hours = d.getHours();
 	let minutes = d.getMinutes();
-	if (message.content.includes(`@${name}`){
+	if (message.includes(`@${name}`) || message.includes(`@everyone`) || message.includes(`@here`)){
 		type = 'mention';
 	}
 	appendMessage(name, `${message}`, type, hours, minutes);
@@ -181,8 +181,8 @@ function appendMessage(name, message, type, hours, minute) {
 		messageElement.className = 'red'
 		messageName.className = 'red'
 	} else if (type == 'mention'){
-		messageElement.className = 'yellow lighten-1'
-		messageName.className = 'yellow lighten-1'
+		messageElement.className = 'yellow'
+		messageName.className = 'yellow'
 	}
 	messageContaner.append(messageName)
 	messageContaner.append(messageElement)
