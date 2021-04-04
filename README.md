@@ -70,7 +70,8 @@ $ cd wyvern
 
 ## Install Everything
 ```console
-npm run install
+npm i
+tsc
 ```
 > This installes all dependencies, converts `ts` files to `js` files.
 

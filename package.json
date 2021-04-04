@@ -4,7 +4,6 @@
   "description": "",
   "main": "main.js",
   "scripts": {
-    "install": "npm i && tsc",
     "devStart": "nodemon server.js",
     "test": ""
   },
