@@ -3,10 +3,10 @@ const app = express();
 const server = require('http').Server(app);
 const io = require('socket.io')(server);
 
-const { slowmodeExport, deleteExport } = require('./exports/settings.js')
-const { messgaeSendExport } = require('./exports/message.js')
-const { checkNameExport } = require('./exports/checks.js')
-const { newOwnerExport, newUserExport, userDisconnectExport, userLeaveExport, userNameChangeExport } = require('./exports/user.js')
+import { slowmodeExport, deleteExport } from './exports/settings.js';
+import { messgaeSendExport } from './exports/message.js';
+import { checkNameExport } from './exports/checks.js';
+import { newOwnerExport, newUserExport, userDisconnectExport, userLeaveExport, userNameChangeExport } from './exports/user.js';
 
 app.set('views', './views')
 app.set('view engine', 'ejs')
@@ -79,6 +79,7 @@ io.on('connection', socket => {
 	})
 
 	socket.on('new-owner', room => {
+		console.log(room)
 		newOwnerExport(rooms, room, socket)
 	})
 	socket.on('new-user', (room, name) => {
