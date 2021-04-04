@@ -67,7 +67,7 @@ $ cd wyvern
 ```
 
 ### Way One:
-> EXE
+> .EXE
 
 ### Run the exe:
 You can run run.exe to have it run the commands and open the website for you! See [`./py`](https://github.com/OreoDivision/wyvern/tree/main/py) for more info!
