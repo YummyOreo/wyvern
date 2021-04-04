@@ -17,7 +17,7 @@ if (messageForm != null) {
 	console.log('owner')
 	socket.emit('new-owner', roomName)
 	socket.on("owner-sendback", results => {
-		if (results == false){
+		if (results == false && owner == true){
 			window.location.href = `/${roomName}`
 		}
 	})
@@ -113,6 +113,13 @@ socket.on('system', message => {
 	appendMessage(`System`, `${message}`, "system", hours, minutes);
 })
 
+socket.on('dm', data => {
+	var d = new Date();
+	let hours = d.getHours();
+	let minutes = d.getMinutes();
+	appendMessage(`${data.user}`, `${data.message}`, "dm", hours, minutes);
+})
+
 socket.on('chat-message', data => {
 	var d = new Date();
 	let hours = d.getHours();
@@ -166,6 +173,9 @@ function appendMessage(name, message, type, hours, minute) {
 	if (type == 'system'){
 		messageElement.className = 'deep-purple'
 		messageName.className = 'deep-purple'
+	} else if (type == 'dm'){
+		messageElement.className = 'red'
+		messageName.className = 'red'
 	}
 	messageContaner.append(messageName)
 	messageContaner.append(messageElement)

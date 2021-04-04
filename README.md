@@ -65,15 +65,13 @@ To install Node.js go to there [website](https://nodejs.org/en/).
 $ git clone https://github.com/OreoDivision/wyvern
 $ cd wyvern
 ```
-### Way one:
-> Console
 
 ## Install Everything
 ```console
 npm i
 tsc
 ```
-> This installes all dependencies, converts `ts` files to `js` files.
+> This installes all dependencies, converts `ts` files to `js` files. ***Its fine to get errors, they are FINE.***
 
 ### Run the website
 ```console
