@@ -38,12 +38,12 @@ exports.messgaeSendExport = (slowmode, rooms, socket, message, room) => {
 			return;
 		} else if (command === 'dm'){
 			let dmName = args.slice(0).join(" ");
-			dmName = dmName.substr(0, dmName.indexOf(' ('));
-			let messageDM = message.split(' (').pop();
+			dmName = dmName.replace("-n ", "");
+			dmName = dmName.substr(0, dmName.indexOf(' -m '));
+			let messageDM = message.split(' -m ').pop();
 			console.log(messageDM)
 //			messageDM = messageDM[0].substr(args.indexOf(' (') + 1);
 //			messageDM = messageDM[0].replace("(", "");
-			messageDM = messageDM.replace(")", "");
 			console.log(messageDM)
 			console.log(dmName)
 			for (user in rooms[room].users) {
@@ -104,7 +104,7 @@ exports.messgaeSendExport = (slowmode, rooms, socket, message, room) => {
 			socket.emit('system', `${muteName} is not in this room.`)
 			return;
 		} else if (command === 'help'){
-			socket.emit('system', `Commands \n !kick <user_name> (kicks the user, owner only) \n !mute/unmute <user> (mutes and unmutes a user, owner only) \n !help (Shows this message) \n !dm <user> (message) (dms a user) \n !dm-toggle (toggle your dms)`)
+			socket.emit('system', `Commands \n !kick <user_name> (kicks the user, owner only) \n !mute/unmute <user> (mutes and unmutes a user, owner only) \n !help (Shows this message) \n !dm -n <user> -m <message> (dms a user) \n !dm-toggle (toggle your dms)`)
 			return;
 		} else if (command === 'slowmode'){
 			if (socket.id != rooms[room].owner) {
