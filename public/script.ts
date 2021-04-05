@@ -7,14 +7,16 @@ const userContaner = document.getElementById('user-contaner')!;
 const messageForm = document.getElementById('send-message-form')!;
 const messageInput = document.getElementById('message-input')! as HTMLInputElement;
 const sendButton = document.getElementById('send-message')! as HTMLButtonElement;
+const shareButton = document.getElementById('share')! as HTMLButtonElement;
 let settings = document.getElementById('settings');
 let name;
 
 //start
 //not needed if statment
-if (messageForm != null) {
+
 	
-	//if they are the owner
+//if they are the owner
+if (settings != null){
 	console.log('owner')
 	socket.emit('new-owner', id)
 	socket.on("owner-sendback", results => {
@@ -22,66 +24,67 @@ if (messageForm != null) {
 			window.location.href = `/${id}`
 		}
 	})
+}
 
-	//gets there name
-	name = prompt('What is your name?')
-	socket.emit('check-name', name, id)
+//gets there name
+name = prompt('What is your name?')
+socket.emit('check-name', name, id)
+socket.on('sendback-name', status => {
+	if (status == false) {
+		name = prompt('Name Taken, Whats your new name?')
+		socket.emit('check-name', name, id)
+		return
+	}
+	var d = new Date();
+	let hours = d.getHours();
+	let minutes = d.getMinutes();
+	appendMessage(name, ' Joined', "join", hours, minutes)
+	socket.emit('new-user', id, name);
+
+})
+
+//when they want to change there name
+nameChange.addEventListener('click', function() {
+	let nameNew = prompt('What is your new name?')
+	if (nameNew == '' || nameNew == null) return;
+	socket.emit('check-name', nameNew, id)
 	socket.on('sendback-name', status => {
 		if (status == false) {
-			name = prompt('Name Taken, Whats your new name?')
-			socket.emit('check-name', name, id)
-			return
-		}
-		var d = new Date();
-		let hours = d.getHours();
-		let minutes = d.getMinutes();
-		appendMessage(name, ' Joined', "join", hours, minutes)
-		socket.emit('new-user', id, name);
-
-	})
-
-	//when they want to change there name
-	nameChange.addEventListener('click', function() {
-		let nameNew = prompt('What is your new name?')
-		if (nameNew == '' || nameNew == null) return;
-		socket.emit('check-name', nameNew, id)
-		socket.on('sendback-name', status => {
-			if (status == false) {
-				nameNew = prompt('Name Taken, What is your new name?')
-				if (nameNew == '' || nameNew == null) return;
-				socket.emit('check-name', nameNew, id)
-		}
-		name = nameNew;
-		socket.emit('name-chage', id, nameNew)
-	})
-	})
-
-	//When they send a message
-	messageForm.addEventListener('submit', e => {
-		console.log(name)
-		e.preventDefault()
-		let message = messageInput.value
-		var d = new Date();
-		let hours = d.getHours();
-		let minutes = d.getMinutes();
-		socket.emit('send-chat-message', id, message)
-		messageInput.value = '';
-	});
-
-	//when the clikc to go back to home
-	back.addEventListener('click', e => {
-		console.log('clicked')
-		socket.emit('leave')
-	});
-
-	//settings
-	if (settings != null){
-		settings.addEventListener('click', function() {
-			window.location.href = `/${id}/settings`
-		})
+			nameNew = prompt('Name Taken, What is your new name?')
+			if (nameNew == '' || nameNew == null) return;
+			socket.emit('check-name', nameNew, id)
 	}
+	name = nameNew;
+	socket.emit('name-chage', id, nameNew)
+})
+})
 
+//When they send a message
+messageForm.addEventListener('submit', e => {
+	console.log(name)
+	e.preventDefault()
+	let message = messageInput.value
+	var d = new Date();
+	let hours = d.getHours();
+	let minutes = d.getMinutes();
+	socket.emit('send-chat-message', id, message)
+	messageInput.value = '';
+});
+
+//when the clikc to go back to home
+back.addEventListener('click', e => {
+	console.log('clicked')
+	socket.emit('leave')
+});
+
+//settings
+if (settings != null){
+	settings.addEventListener('click', function() {
+		window.location.href = `/${id}/settings`
+	})
 }
+
+
 /* 
 this will not be covered due to the complexity of it.
 it will be covered later
@@ -208,4 +211,5 @@ function appendMessage(name, message, type, hours, minute) {
 	messageContaner.append(messageName)
 	messageContaner.append(messageElement)
 	messageContaner.append(br)
+	messageContaner.scrollTop = messageContaner.scrollHeight;
 }

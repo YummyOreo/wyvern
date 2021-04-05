@@ -14,6 +14,14 @@
 	<script defer src="http://localhost:3000/socket.io/socket.io.js"></script>
 	<script defer src="../script.js"></script>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+	<style>
+		#message-contaner::-webkit-scrollbar {
+		  display: none;
+		}
+		#user-contaner::-webkit-scrollbar {
+		  display: none;
+		}
+	</style>
 	<link rel="shortcut icon" type="image/x-icon" href="https://cdn.discordapp.com/attachments/826150434581643264/827516742280544287/Icon.png">
 </head>
 
@@ -24,6 +32,7 @@
 
 			<a class="waves-effect waves-light btn" id='back' style="background-color: #538548">Back To Home</a>
 			<a class="waves-effect waves-light btn" id='name' style="background-color: #538548">Change Your Name</a>
+			<a class="waves-effect waves-light btn" id='share' style="background-color: #538548">Share</a>
 			<% if(owner == true){ %>
 			<a class="waves-effect waves-light btn" id='settings' style="background-color: #538548">Settings</a>
 			<% } %>
@@ -33,17 +42,17 @@
 		</div>
 	</nav>
 <div class="row">
-	<div class="col s2" style="background-color: #659e57; min-height: 100rem; border-radius: 10px;">
+	<div class="col s2" style="background-color: #659e57; height: 100vh; border-radius: 10px;">
 	<div class='contaner' align="center">
 
-	<div id='user-contaner'>
+	<div id='user-contaner' style="overflow: scroll; height: 20rem; border-radius: 10px;">
 		<p>Members In <%= roomName %></p>
 	</div>
 	</div>
 	</div>
-	<div class="col s10" style="background-color: #77b868; min-height: 100rem; border-radius: 10px; ">
+	<div class="col s10" style="background-color: #77b868; height: 100vh; border-radius: 10px; ">
 	<div class='contaner' align="center">
-	<div id='message-contaner'>
+	<div id='message-contaner' style="overflow: scroll; height: 20rem; border-radius: 10px;">
 		<p>Start Of Chat</p>
 	</div>
 		<form id='send-message-form'>

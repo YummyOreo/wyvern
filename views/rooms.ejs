@@ -8,6 +8,11 @@
 	<title>Wyvern | Rooms</title>
 	<script defer src="../rooms.js"></script>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">	
+	<style>
+		#room-contaner::-webkit-scrollbar {
+		  display: none;
+		}
+	</style>
 	<link rel="shortcut icon" type="image/x-icon" href="https://cdn.discordapp.com/attachments/826150434581643264/827516742280544287/Icon.png">
 </head>
 <body>
@@ -21,9 +26,9 @@
 		</div>
 	</nav>
 	<div class='contaner' align="center">
-	<div style="background-color: #77b868; min-height: 100rem; border-radius: 10px; ">
+	<div style="background-color: #77b868; height: 100vh; border-radius: 10px; ">
 
-			<div id="room-contaner">
+			<div id="room-contaner" style="overflow: scroll; height: 20rem; border-radius: 10px;">
 				<p>Rooms</p>
 				<% Object.keys(rooms).forEach(room => { console.log(rooms); if (rooms[room].public == "on") {return;} %>
 				<div><%= rooms[room].name; %></div>
