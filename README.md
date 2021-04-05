@@ -7,8 +7,6 @@
 
 ## About
 
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/28b6fe0439ca443493f560b27e56f31f)](https://app.codacy.com/gh/OreoDivision/wyvern?utm_source=github.com&utm_medium=referral&utm_content=OreoDivision/wyvern&utm_campaign=Badge_Grade_Settings)
-
 Wyvern is a chat app ment to not have you sign in, so that means it does not collect your data, or any data about anything! There will be private rooms, and public rooms. Public rooms are shown on the main page. Private rooms need a link.
 
 ## [Discord](https://discord.com/invite/9kvTg7Pk5W)  

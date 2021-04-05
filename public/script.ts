@@ -10,6 +10,7 @@ const sendButton = document.getElementById('send-message')! as HTMLButtonElement
 const shareButton = document.getElementById('share')! as HTMLButtonElement;
 let settings = document.getElementById('settings');
 let name;
+let userList = [];
 
 //start
 //not needed if statment
@@ -95,6 +96,7 @@ socket.on('changed-slowmode', (newValue) => {
 })
 
 socket.on('user-changed-name', () => {
+	userList = []
 	userContaner.innerText = ''
 	var headerList = document.createElement("p");
 	var text = document.createTextNode('Members In ' + roomName);
@@ -156,6 +158,7 @@ socket.on('chat-message', ({name, message}) => {
 });
 
 socket.on('user-joined', UserName => {
+	userList = []
 	if (UserName == name) return;
 	userContaner.innerText = ''
 
@@ -180,6 +183,7 @@ socket.on('user-leave', UserName => {
 });
 
 socket.on('user-list', UserName => {
+	userList.push(UserName)
 	const listElement = document.createElement('p');
 	listElement.innerText = UserName;
 	listElement.id = UserName

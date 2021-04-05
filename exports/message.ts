@@ -48,7 +48,7 @@ exports.messgaeSendExport = (slowmode, rooms, socket, message, room) => {
 			console.log(dmName)
 			for (user in rooms[room].users) {
 				if (rooms[room].users[user] == dmName) {
-					if (rooms[room].dm.includes(user)){
+					if (rooms[room].dm.includes(user) && rooms[room].owner != socket.id){
 						socket.emit('system', `${dmName} has their dms turned off.`)
 						return;
 					}
@@ -104,9 +104,26 @@ exports.messgaeSendExport = (slowmode, rooms, socket, message, room) => {
 			socket.emit('system', `${muteName} is not in this room.`)
 			return;
 		} else if (command === 'help'){
-			socket.emit('system', `Commands \n !kick <user_name> (kicks the user) \n !mute/unmute <user> (mutes and unmutes a user) \n !help (Shows this message) \n !dm <user> (message) (dms a user) \n !dm-toggle (toggle your dms)`)
+			socket.emit('system', `Commands \n !kick <user_name> (kicks the user, owner only) \n !mute/unmute <user> (mutes and unmutes a user, owner only) \n !help (Shows this message) \n !dm <user> (message) (dms a user) \n !dm-toggle (toggle your dms)`)
 			return;
-		} 
+		} else if (command === 'slowmode'){
+			if (socket.id != rooms[room].owner) {
+				socket.emit('system', `You do not have accese to commands`);
+				return;
+			}
+		} else if (command === 'name'){
+
+		} else if (command === 'privacy-toggle'){
+			if (socket.id != rooms[room].owner) {
+				socket.emit('system', `You do not have accese to commands`);
+				return;
+			}
+		} else if (command == 'change-name'){
+			if (socket.id != rooms[room].owner) {
+				socket.emit('system', `You do not have accese to commands`);
+				return;
+			}
+		}
 	}
 	//sends the message
 	socket.to(room).emit('chat-message', { message: message, name: name });

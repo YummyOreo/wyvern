@@ -55,7 +55,9 @@ exports.userLeaveExport = (socket, rooms) => {
 //func for when there is a name change
 exports.userNameChangeExport = (rooms, name, socket, room) => {
 	let user;
+	console.log(rooms[room].users)
 	rooms[room].users[socket.id] = name;
+	console.log(rooms[room].users)
 	socket.to(room).emit("user-changed-name")
 	socket.emit("user-changed-name")
 	for (user in rooms[room].users){

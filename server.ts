@@ -11,7 +11,7 @@ const { newOwnerExport, newUserExport, userDisconnectExport, userLeaveExport, us
 app.set('views', './views')
 app.set('view engine', 'ejs')
 app.use(express.static('public'))
-app.use(express.urlencoded({ exteneded: true }))
+app.use(express.urlencoded({ extended: true }))
 
 const rooms = {}
 
