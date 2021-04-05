@@ -19,8 +19,7 @@ function regenorate(): any {
 	let min = Math.ceil(1);
   	let max = Math.floor(100000);
 	let idReturn = Math.floor(Math.random() * (max - min) + min);
-	let roomID
-	if(rooms[roomID] != null){
+	if(rooms[idReturn] != null){
 		idReturn = regenorate()
 	}
 	return idReturn;
