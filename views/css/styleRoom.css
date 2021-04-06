@@ -1,0 +1,6 @@
+#message-contaner::-webkit-scrollbar {
+  display: none;
+}
+#user-contaner::-webkit-scrollbar {
+  display: none;
+}
