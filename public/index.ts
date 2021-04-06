@@ -1,4 +1,3 @@
-//gets the rooms button
 const roomsButton = document.getElementById('rooms')!;
 
 //redirects to the room link when clicked
