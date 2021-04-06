@@ -199,11 +199,11 @@ function appendMessage(name, message, type, hours, minute) {
 		messageElement.className = 'deep-purple'
 		messageName.className = 'deep-purple'
 	} else if (type == 'dm'){
-		messageElement.className = 'red'
-		messageName.className = 'red'
+		messageElement.className = 'light-blue'
+		messageName.className = 'light-blue'
 	} else if (type == 'mention'){
-		messageElement.className = 'yellow'
-		messageName.className = 'yellow'
+		messageElement.className = 'yellow accent-3'
+		messageName.className = 'yellow accent-3'
 	}
 	messageContaner.append(messageName)
 	messageContaner.append(messageElement)

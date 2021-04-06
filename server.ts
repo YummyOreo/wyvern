@@ -17,7 +17,7 @@ const help = 'Commands \n !kick <user_name> (kicks the user, owner only) \n !mut
 
 function regenorate(): any {
 	let min = Math.ceil(1);
-  	let max = Math.floor(100000);
+	let max = Math.floor(100000);
 	let idReturn = Math.floor(Math.random() * (max - min) + min);
 	if(rooms[idReturn] != null){
 		idReturn = regenorate()
