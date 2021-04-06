@@ -1,4 +1,3 @@
-//sets up all needed global vars
 const socket = io('http://localhost:3000')
 const publicSwitch = document.getElementById('public-switch')!;
 const back = document.getElementById('back')!;
