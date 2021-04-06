@@ -5,6 +5,9 @@ const savedPublic = document.getElementById('saved-public')!;
 const savedSlowmode = document.getElementById('saved-slowmode')!;
 const deleteRoom = document.getElementById('delete')!;
 const slowmode = document.getElementById('slowmode')!;
+const bannedNamesForm = document.getElementById('banned-names-form')! as HTMLFormElement;
+const bannedNamesInput = document.getElementById('banned-names-input')! as HTMLInputElement;
+const allBannedNames = document.getElementById('all-banned-names')! as HTMLButtonElement;
 
 // when the user wants to go back to the room
 back.addEventListener('click', () => {
@@ -36,4 +39,24 @@ publicSwitch.addEventListener('submit', e => {
 	let inputValue  = (document.getElementById('private') as HTMLInputElement).value
 	socket.emit('privacy-change', id, inputValue )
 	savedPublic.innerText = "Saved"
+})
+
+bannedNamesForm.addEventListener('submit', e => {
+	e.preventDefault()
+	socket.emit('add-ban-name', bannedNamesInput.value, id);
+	bannedNamesInput.value = '';
+	document.getElementById('saved-ban').innerText = 'Saved';
+})
+
+allBannedNames.addEventListener('click', () => {
+	socket.emit('get-banned-name', id)
+	socket.on('get-banned-name-return', (names:any) => {
+		let i
+		let namesList = ' '
+		for (i in names){
+			namesList += names[i] + ', '
+		}
+		window.alert(`All banned names are: ${namesList}`)
+		return;
+	})
 })

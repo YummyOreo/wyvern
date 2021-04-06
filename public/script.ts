@@ -15,7 +15,6 @@ let userList = [];
 	
 //if they are the owner
 if (settings != null){
-	console.log('owner')
 	socket.emit('new-owner', id)
 	socket.on("owner-sendback", results => {
 		if (results == false && owner == true){
@@ -29,7 +28,7 @@ name = prompt('What is your name?')
 socket.emit('check-name', name, id)
 socket.on('sendback-name', status => {
 	if (status == false) {
-		name = prompt('Name Taken, Whats your new name?')
+		name = prompt('You can not change your name to that name, Whats your new name?')
 		socket.emit('check-name', name, id)
 		return
 	}
@@ -59,7 +58,6 @@ nameChange.addEventListener('click', function() {
 
 //When they send a message
 messageForm.addEventListener('submit', e => {
-	console.log(name)
 	e.preventDefault()
 	let message = messageInput.value
 	var d = new Date();
@@ -71,7 +69,6 @@ messageForm.addEventListener('submit', e => {
 
 //when the clikc to go back to home
 back.addEventListener('click', e => {
-	console.log('clicked')
 	socket.emit('leave')
 });
 
@@ -194,7 +191,6 @@ function appendMessage(name, message, type, hours, minute) {
 	const br = document.createElement('br');
 	messageElement.innerText = message;
 	minute = minute.toString();
-	console.log(minute.length)
 	if (minute.length == 1){
 		minute = '0' + minute;
 	}

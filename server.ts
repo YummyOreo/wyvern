@@ -34,9 +34,8 @@ app.get('/home', (req, res) => {
 })
 
 app.post('/room', (req, res) => {
-	console.log(req.body.private + '/room')
 	let id = regenorate()
-	rooms[id] = { users: {}, public: req.body.private, owner: null, slowmode: 1, dm: [], muted: [], name: req.body.room}
+	rooms[id] = { users: {}, public: req.body.private, owner: null, slowmode: 1, dm: [], name: req.body.room, bannedNames: [] }
 	res.redirect(id + '/owner')
 	io.emit('room-created', req.body.room, id)
 })
@@ -53,7 +52,6 @@ app.get('/:room/settings', (req, res) => {
 	if (rooms[req.params.room] == null) {
 		return res.redirect('/')
 	}
-	console.log(req.params.room)
 	res.render('settings', { roomName: rooms[req.params.room].name, rooms: rooms, id: req.params.room })
 })
 
@@ -61,7 +59,6 @@ app.get('/:room/owner', (req, res) => {
 	if (rooms[req.params.room] == null) {
 		return res.redirect('/')
 	}
-	console.log(req.params.room)
 	res.render('room', { id: req.params.room, owner: true, roomName: rooms[req.params.room].name })
 })
 
@@ -87,7 +84,6 @@ io.on('connection', socket => {
 	})
 
 	socket.on('new-owner', room => {
-		console.log(room)
 		newOwnerExport(rooms, room, socket)
 	})
 	socket.on('new-user', (room, name) => {
@@ -122,7 +118,6 @@ io.on('connection', socket => {
 				}
 				//gets the name
 				let kickName = args.slice(0).join(" ");
-				console.log(kickName)
 				//gets the id
 				for (user in rooms[room].users) {
 					if (rooms[room].users[user] == kickName) {
@@ -190,7 +185,6 @@ io.on('connection', socket => {
 					return;
 				}
 				let muteName = args.slice(0).join(" ");
-				console.log(muteName)
 				for (user in rooms[room].users) {
 					if (rooms[room].users[user] == muteName) {
 						socket.to(user).emit('mute', name, true)
@@ -206,7 +200,6 @@ io.on('connection', socket => {
 					return;
 				}
 				let muteName = args.slice(0).join(" ");
-				console.log(muteName)
 				for (user in rooms[room].users) {
 					if (rooms[room].users[user] == muteName) {
 						socket.to(user).emit('mute', name, false)
@@ -225,11 +218,8 @@ io.on('connection', socket => {
 					socket.emit('system', `You do not have accese to commands`);
 					return;
 				}
-				console.log('slowmode2')
 				const slowmodeValue = args.slice(0).join(" ");
-				console.log(slowmodeValue)
 				rooms[room].slowmode = slowmodeValue;
-				console.log(rooms[room])
 				socket.to(room).emit('changed-slowmode', slowmodeValue)
 				socket.emit('changed-slowmode', slowmodeValue)
 				socket.emit('system', `Slowmode has been changed to ${slowmodeValue}`);
@@ -238,13 +228,11 @@ io.on('connection', socket => {
 				let newName = args.slice(0).join(" ");
 				let result = checkNameExportCommand(newName, room, rooms, socket)
 				if (result == false){
-					socket.emit('system', `Name has been used, try again`);
+					socket.emit('system', `You can not change your name to that name.`);
 					return
 				}
 				let user;
-				console.log(rooms[room].users)
 				rooms[room].users[socket.id] = newName;
-				console.log(rooms[room].users)
 				socket.to(room).emit("user-changed-name")
 				socket.emit("user-changed-name")
 				for (user in rooms[room].users){
@@ -292,5 +280,13 @@ io.on('connection', socket => {
 	})
 	socket.on('privacy-change', (room, value) => {
 		rooms[room].public = value;
+	})
+
+	socket.on('add-ban-name', (banName, id) => {
+		rooms[id].bannedNames.push(banName);
+	})
+
+	socket.on('get-banned-name', id => {
+		socket.emit('get-banned-name-return', rooms[id].bannedNames)
 	})
 })
