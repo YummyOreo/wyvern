@@ -13,7 +13,7 @@ app.use(express.static('public'))
 app.use(express.urlencoded({ extended: true }))
 
 const rooms = {}
-const help = 'Commands \n !kick <user_name> (kicks the user, owner only) \n !mute/unmute <user> (mutes and unmutes a user, owner only) \n !slowmode <new value> (changed the slowmode, owner only) \n !help (Shows this message) \n !dm -n <user> -m <message> (dms a user) \n !dm-toggle (toggle your dms) \n !name <new name> (changes your name)'
+const help = 'Commands \n !kick <user_name> (kicks the user, owner only) \n !mute/unmute <user> (mutes and unmutes a user, owner only) \n !slowmode <new value> (changed the slowmode, owner only) \n !privacy-toggle (Toggles the privacy of the room, owner only) \n !banned-names (Shows you a list of banned-names, owner only) \n !help (Shows this message) \n !dm -n <user> -m <message> (dms a user) \n !dm-toggle (toggle your dms) \n !name <new name> (changes your name)'
 
 function regenorate(): any {
 	let min = Math.ceil(1);
@@ -105,7 +105,7 @@ io.on('connection', socket => {
 		if (name == null) name = 'Guest'
 		//if owner, they can accese commands
 		
-		if (message.startsWith('!')){
+		if (message.startsWith('!')) {
 			const [command, ...args] = message
 			.trim()
 			.substring('!'.length)
@@ -224,7 +224,7 @@ io.on('connection', socket => {
 				socket.emit('changed-slowmode', slowmodeValue)
 				socket.emit('system', `Slowmode has been changed to ${slowmodeValue}`);
 				return;
-			} else if (command === 'name'){
+			} else if (command === 'name') {
 				let newName = args.slice(0).join(" ");
 				let result = checkNameExportCommand(newName, room, rooms, socket)
 				if (result == false){
@@ -241,7 +241,7 @@ io.on('connection', socket => {
 				}
 				socket.emit('system', `Name has been changed to ${newName}`);
 				return
-			} else if (command === 'privacy-toggle'){
+			} else if (command === 'privacy-toggle') {
 				if (socket.id != rooms[room].owner) {
 					socket.emit('system', `You do not have accese to commands`);
 					return;
@@ -255,11 +255,27 @@ io.on('connection', socket => {
 					socket.emit('system', `The privacy has been changed to public.`);
 					return;
 				}
-			} else if (command == 'change-name'){
+			} else if (command == 'banned-names') {
 				if (socket.id != rooms[room].owner) {
 					socket.emit('system', `You do not have accese to commands`);
 					return;
 				}
+				let i
+				let namesList = ' '
+				for (i in rooms[room].bannedNames){
+					namesList += rooms[room].bannedNames[i] + ', '
+				}
+				socket.emit('system', `All banned names are: ${namesList}`)
+				return;
+			} else if (command == "add-banned-name"){
+				if (socket.id != rooms[room].owner) {
+					socket.emit('system', `You do not have accese to commands`);
+					return;
+				}
+				let banName = args.slice(0).join(" ");
+				rooms[room].bannedNames.push(banName);
+				socket.emit('system', `Added ${banName} to the banned names list.`);
+				return
 			}
 		}
 		//sends the message
@@ -269,6 +285,7 @@ io.on('connection', socket => {
 		slowmode = rooms[room].slowmode
 		setTimeout(() => { slowmode = 0; }, rooms[room].slowmode * 1000);		
 	})
+
 	socket.on('disconnect', () => {
 		userDisconnectExport(socket, rooms)
 	})
