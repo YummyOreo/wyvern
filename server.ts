@@ -4,8 +4,8 @@ const server = require('http').Server(app);
 const io = require('socket.io')(server);
 
 const { slowmodeExport, deleteExport } = require('./exports/settings.js');
-const { checkNameExport } = require('./exports/checks.js');
-const { newOwnerExport, newUserExport, userDisconnectExport, userLeaveExport, userNameChangeExport, checkNameExportCommand } = require('./exports/user.js');
+const { checkNameExport, checkNameExportCommand } = require('./exports/checks.js');
+const { newOwnerExport, newUserExport, userDisconnectExport, userLeaveExport, userNameChangeExport } = require('./exports/user.js');
 
 app.set('views', './views')
 app.set('view engine', 'ejs')

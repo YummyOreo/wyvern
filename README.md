@@ -106,7 +106,7 @@ We use [`soket.io`](https://socket.io/), so to send messages we use `soket.to(ro
 		<a href="/<%= room %>" class="waves-effect waves-light btn">Join</a>
 		<% }) %>
 ```
-Seen in [`./views/index.ejs`](https://github.com/OreoDivision/wyvern/blob/main/views/index.ejs).
+Seen in [`./views/rooms.ejs`](https://github.com/OreoDivision/wyvern/blob/main/views/rooms.ejs).
 
 ## Developers
 All developers that have worked on the app will be listed here.
