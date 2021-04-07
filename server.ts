@@ -13,7 +13,7 @@ app.use(express.static('public'))
 app.use(express.urlencoded({ extended: true }))
 
 const rooms = {}
-const help = 'Commands \n !kick <user_name> (kicks the user, owner only) \n !mute/unmute <user> (mutes and unmutes a user, owner only) \n !slowmode <new value> (changed the slowmode, owner only) \n !privacy-toggle (Toggles the privacy of the room, owner only) \n !banned-names (Shows you a list of banned-names, owner only) \n !help (Shows this message) \n !dm -n <user> -m <message> (dms a user) \n !dm-toggle (toggle your dms) \n !name <new name> (changes your name)'
+const help = 'Commands \n !kick <user_name> (kicks the user, owner only) \n !mute/unmute <user> (mutes and unmutes a user, owner only) \n !slowmode <new value> (changed the slowmode, owner only) \n !privacy-toggle (Toggles the privacy of the room, owner only) \n !add-banned-name (Adds a banned name to the banned names list, owner only) \n !banned-names (Shows you a list of banned-names, owner only) \n !help (Shows this message) \n !dm -n <user> -m <message> (dms a user) \n !dm-toggle (toggle your dms) \n !name <new name> (changes your name)'
 
 function regenorate(): any {
 	let min = Math.ceil(1);
