@@ -2,8 +2,9 @@
   "name": "wyvern",
   "version": "1.0.0",
   "description": "",
-  "main": "main.js",
+  "main": "server.js",
   "scripts": {
+    "start": "node server.js",
     "devStart": "nodemon server.js",
     "test": ""
   },

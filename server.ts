@@ -15,6 +15,11 @@ app.use(express.urlencoded({ extended: true }))
 const rooms = {}
 const help = 'Commands \n !kick <user_name> (kicks the user, owner only) \n !mute/unmute <user> (mutes and unmutes a user, owner only) \n !slowmode <new value> (changed the slowmode, owner only) \n !privacy-toggle (Toggles the privacy of the room, owner only) \n !add-banned-name (Adds a banned name to the banned names list, owner only) \n !banned-names (Shows you a list of banned-names, owner only) \n !help (Shows this message) \n !dm -n <user> -m <message> (dms a user) \n !dm-toggle (toggle your dms) \n !name <new name> (changes your name)'
 
+function sendChatMessage(room, socket, message) {
+	socket.to(room).emit('chat-message', { message: message, name: name });
+	socket.emit('chat-message', { message: message, name: name });
+}
+
 function regenorate(): any {
 	let min = Math.ceil(1);
 	let max = Math.floor(100000);
@@ -42,7 +47,7 @@ app.post('/room', (req, res) => {
 
 app.get('/:room', (req, res) => {
 	if (rooms[req.params.room] == null) {
-		return res.redirect('/')
+		return res.render('error')
 	}
 
 	res.render('room', { id: req.params.room, owner: false, roomName: rooms[req.params.room].name })
@@ -50,14 +55,14 @@ app.get('/:room', (req, res) => {
 
 app.get('/:room/settings', (req, res) => {
 	if (rooms[req.params.room] == null) {
-		return res.redirect('/')
+		return res.render('error')
 	}
 	res.render('settings', { roomName: rooms[req.params.room].name, rooms: rooms, id: req.params.room })
 })
 
 app.get('/:room/owner', (req, res) => {
 	if (rooms[req.params.room] == null) {
-		return res.redirect('/')
+		return res.render('error')
 	}
 	res.render('room', { id: req.params.room, owner: true, roomName: rooms[req.params.room].name })
 })
@@ -86,9 +91,11 @@ io.on('connection', socket => {
 	socket.on('new-owner', room => {
 		newOwnerExport(rooms, room, socket)
 	})
+	
 	socket.on('new-user', (room, name) => {
 		newUserExport(socket, rooms, room, name)
 	})
+
 	socket.on('send-chat-message', (room, message) => {
 		let user;
 		if (slowmode == rooms[room].slowmode){
@@ -279,8 +286,7 @@ io.on('connection', socket => {
 			}
 		}
 		//sends the message
-		socket.to(room).emit('chat-message', { message: message, name: name });
-		socket.emit('chat-message', { message: message, name: name });
+		sendChatMessage(room, socket, message)
 		//sets the slowmode
 		slowmode = rooms[room].slowmode
 		setTimeout(() => { slowmode = 0; }, rooms[room].slowmode * 1000);		
@@ -289,12 +295,15 @@ io.on('connection', socket => {
 	socket.on('disconnect', () => {
 		userDisconnectExport(socket, rooms)
 	})
+
 	socket.on('leave', () => {
 		userLeaveExport(socket, rooms)
 	})
+
 	socket.on('name-chage', (room, name) => {
 		userNameChangeExport(rooms, name, socket, room)
 	})
+
 	socket.on('privacy-change', (room, value) => {
 		rooms[room].public = value;
 	})

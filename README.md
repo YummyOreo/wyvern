@@ -117,8 +117,6 @@ All developers that have worked on the app will be listed here.
 This lists everyone that worked on the main repo.
 * OreoDivision
 	* Head Dev.
-* Polar Ice
-	* Graphic Designer.
 
 ### Foreked Devs
 This lists everyone that has had there fork implemented into the main repo.
